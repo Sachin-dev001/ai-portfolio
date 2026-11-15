@@ -1,84 +1,64 @@
-# Sachin Sharma — AI Engineer Portfolio
+# Sachin Sharma — AI & Agentic Systems Engineer Portfolio
 
-A production-grade, ATS/Recruiter-optimized portfolio engineered specifically for **AI Engineer**, **GenAI Engineer**, and **Agentic Systems** roles.
+> **Live Production URL:** [https://agile-mauve-8p7v0p2.tmp.now/](https://agile-mauve-8p7v0p2.tmp.now/)  
+> **ATS Resume:** [Download PDF](https://agile-mauve-8p7v0p2.tmp.now/Sachin_Sharma_AI_Engineer_Resume.pdf)
 
-Designed with the **"Modern AI Lab / Infrastructure" aesthetic** (Linear / Vercel style) rather than generic 3D fluff:
-- **Interactive 3D Semantic Vector Space**: Built with Three.js, visualizes embedding clusters (Agents, RAG, Evals, Inference) with cosine-distance topology, mouse drag orbit, and node hover inspection.
-- **Deep-Dive System Architecture Case Studies**: Interactive flow diagrams and hard-metric impact for **AutoApply** (Autonomous Stealth Agent) and **VideoSage AI** (Timestamped Video RAG).
-- **Live RAG & Eval Playground**: Interactive simulator allowing recruiters and hiring managers to toggle cross-encoder rerankers, adjust similarity thresholds, and inspect live Ragas/DeepEval benchmark scores.
-- **Structured Skills Bento Grid**: Taxonomy organized by functional AI domains (LLMs, Multi-Agent, Vector Search, LLMOps, Serving, Backend).
-- **Direct Recruiter CTAs**: 1-click ATS Resume PDF download and email clipboard copy.
+A production-grade, neo-brutalist liquid-glass portfolio engineered for **AI Engineer**, **Agentic Systems Engineer**, and **Applied GenAI** roles. Reverse-engineered from the award-winning design system of [awmedia.marketing](https://awmedia.marketing/) with exact visual, animation, and architectural parity.
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Key Highlights & Systems
 
-All project files and heavy dependencies are located in `D:\ai-portfolio`:
+- **Cinematic Looping Video Hero**: Seamless MP4 video background (`hero-cinematic.mp4`), radial gradient shades, and prominent chrome typography (`SACHIN SHARMA / AI & Agentic Systems Engineer.`).
+- **Interactive 3D Console ("Built like this.")**: Live tab switcher between **VideoSage AI** (Video RAG) and **AutoApply** (Stealth Browser Agent) with an animated real-time 60 FPS SSE telemetry log console.
+- **Continuous Tech Stack & Benchmark Marquee**: Hardware-accelerated ticker displaying Gemini 2.5 Flash, Qdrant HNSW, Playwright Stealth, and BAAI Cross-Encoder benchmarks.
+- **Core Capabilities Table**: 4 technical rows with dark glass hover effects and custom emerald glowing indicators (never flashing solid white).
+- **5-Step Engineering Methodology**: Sticky progression tracking: Discovery, Chunking & Indexing, Reranking & Evasion, Evals & Guardrails, Deployment & Observability.
+- **Quantitative Evals Lab**: Interactive simulation allowing recruiters to toggle the **BAAI Cross-Encoder** on/off to see real-time precision lift (+28%), distractor chunk demotions, and streaming latencies.
+- **100% Mobile Ready**: Tested on standard 375px mobile viewports with zero horizontal overflow, full drawer navigation, and touch-optimized buttons.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend & UI**: React 19, Vite, Tailwind CSS v4, Lucide Icons
+- **Design System**: Neo-brutalist liquid glass, Rethink Sans, JetBrains Mono
+- **Deployment**: Vercel Global Edge Network with `vercel.json` rewrite routing
+- **AI Stack Showcased**: Python 3.12, Gemini 2.5 Flash, Qdrant Vector DB, Playwright Stealth, FastAPI SSE, LangChain, Ragas
+
+---
+
+## 💻 Local Development
 
 ```bash
-# Navigate to the project directory
+# Navigate to project folder
 cd D:\ai-portfolio
 
-# Start the local development server (with hot reload)
+# Install dependencies
+npm install
+
+# Start local dev server
 npm run dev
 
-# Or test the production build locally
+# Build production assets
 npm run build
+
+# Preview production build locally
 npm run preview
 ```
 
-Open `http://localhost:5173/` in your browser.
-
 ---
 
-## 📁 Project Structure
+## ⚡ 1-Click Deployment to Vercel
 
-```
-D:\ai-portfolio/
-├── .planning/                  # GSD roadmap, requirements, and project state
-├── public/
-│   └── Sachin_Sharma_AI_Engineer_Resume.pdf  # Downloadable ATS resume
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx          # Header with live status badge and quick nav
-│   │   ├── Hero.jsx            # Value proposition, TTFT latency, precision metrics
-│   │   ├── VectorSpace3D.jsx   # Three.js 3D vector space with hover HUD
-│   │   ├── Projects.jsx        # AutoApply & VideoSage AI case studies & architecture
-│   │   ├── AIPlayground.jsx    # Interactive RAG vs. Naive search & Eval simulator
-│   │   ├── SkillsGrid.jsx      # Technical stack bento grid
-│   │   ├── Experience.jsx      # AU Foundation experience & Poornima Univ degree
-│   │   ├── ResumeModal.jsx     # In-browser ATS resume preview & download
-│   │   ├── Footer.jsx          # Contact card, email copy, and social links
-│   │   └── Icons.jsx           # SVG icons for GitHub & LinkedIn
-│   ├── App.jsx                 # Main layout assembly
-│   ├── index.css               # Tailwind CSS v4 styling & dark theme tokens
-│   └── main.jsx
-├── package.json
-└── vite.config.js
+```bash
+# Build & Deploy directly from your terminal:
+npm run build
+npx vercel deploy --prebuilt --prod
 ```
 
----
-
-## 🎨 Easy Customization & Redesign
-
-If you want to tweak or redesign any aspect:
-1. **Colors & Themes**: Modify `src/index.css` or Tailwind classes in components (`cyan-400`, `emerald-400`, `purple-400`).
-2. **Projects**: Edit `src/components/Projects.jsx` to update descriptions, metrics, or add new projects.
-3. **3D Embedding Nodes**: Edit the `EMBEDDING_NODES` array at the top of `src/components/VectorSpace3D.jsx` to add or modify clusters, coordinates, or metrics.
-4. **Resume**: Replace `public/Sachin_Sharma_AI_Engineer_Resume.pdf` whenever you update your resume.
+Or connect the repository `Sachin-dev001/ai-portfolio` on [vercel.com/new](https://vercel.com/new) for automated continuous deployment on every `git push`.
 
 ---
 
-## 🌐 Deploy to Vercel (1-Click)
-
-1. Push this folder to your GitHub repo:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: AI engineer portfolio with 3D vector space"
-   git remote add origin https://github.com/Sachin-dev001/<your-repo-name>.git
-   git push -u origin main
-   ```
-2. Go to [vercel.com](https://vercel.com) -> **Add New Project** -> Select your repo.
-3. Framework Preset: **Vite**
-4. Click **Deploy**!
+© 2026 Sachin Sharma. All rights reserved.
