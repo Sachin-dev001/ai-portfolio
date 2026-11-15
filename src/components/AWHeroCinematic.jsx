@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, ArrowRight } from 'lucide-react';
+import { ArrowRight, FileText } from 'lucide-react';
 
 export default function AWHeroCinematic({ onOpenResume }) {
   return (
@@ -19,7 +19,7 @@ export default function AWHeroCinematic({ onOpenResume }) {
         <div className="hero-shade" />
       </div>
 
-      {/* Hero Inner Content (Identical to AW Media) */}
+      {/* Hero Inner Content */}
       <div className="hero-inner" data-hero-inner="">
         <span className="chip glass" data-liquid="chip">
           <i
@@ -33,15 +33,16 @@ export default function AWHeroCinematic({ onOpenResume }) {
               display: 'inline-block',
             }}
           />
-          AI & Agentic Systems Engineer &bull; Sachin Sharma
+          Specializing in Production RAG, Autonomous Agents & LLMOps
         </span>
 
+        {/* Hero Title: Prominent Personal Branding */}
         <h1 className="hero-title">
           <span className="line">
             <span className="line-in">SACHIN SHARMA</span>
           </span>
           <span className="line">
-            <span className="line-in chrome">Architected properly.</span>
+            <span className="line-in chrome">AI & Agentic Systems Engineer.</span>
           </span>
         </h1>
 

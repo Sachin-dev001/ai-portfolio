@@ -7,3 +7,40 @@
     --font-rethink-sans: 'Rethink Sans', system-ui, -apple-system, sans-serif;
   }
 }
+
+/* Production Spec button hover fix: Never go solid blinding white */
+.row-cta {
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #e4e4e7 !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 9999px !important;
+  padding: 8px 18px !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.row:hover .row-cta,
+.row-cta:hover {
+  background: rgba(43, 214, 123, 0.12) !important;
+  border-color: rgba(43, 214, 123, 0.6) !important;
+  color: #2bd67b !important;
+  box-shadow: 0 0 20px rgba(43, 214, 123, 0.25) !important;
+  transform: translateY(-2px);
+}
+
+/* Marquee continuous smooth animation */
+@keyframes marquee-scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-left 28s linear infinite;
+}
+
+.animate-marquee-left:hover {
+  animation-play-state: paused;
+}

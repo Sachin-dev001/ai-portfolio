@@ -19,7 +19,7 @@ export default function AWWorkSection() {
       tech: ['Python', 'Playwright Stealth', 'Google Gemini Flash', 'Supabase Auth & RLS', 'Telegram Bot API'],
       github: 'https://github.com/Sachin-dev001/ai-job-agent',
       live: null,
-      bgImg: '/renewafuel.jpg',
+      glowGradient: 'radial-gradient(circle at 85% 25%, rgba(43, 214, 123, 0.15) 0%, rgba(16, 185, 129, 0.04) 40%, transparent 70%)',
     },
     {
       id: 'videosage',
@@ -36,14 +36,14 @@ export default function AWWorkSection() {
       tech: ['Python', 'Gemini 2.5 Flash', 'Qdrant Vector DB', 'BAAI Reranker', 'Streamlit Cloud'],
       github: 'https://github.com/Sachin-dev001/video-sage-ai',
       live: 'https://video-sage-ai.streamlit.app',
-      bgImg: '/matcha.jpg',
+      glowGradient: 'radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.15) 0%, rgba(59, 130, 246, 0.04) 40%, transparent 70%)',
     },
   ];
 
   return (
     <section id="work" style={{ padding: '120px 0 80px' }}>
       <div className="wrap">
-        {/* Section Header (Exact AW Media structure) */}
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <span className="chip glass" data-liquid="chip">
@@ -76,7 +76,7 @@ export default function AWWorkSection() {
           </div>
         </div>
 
-        {/* Work Cards (Exact AW Media glass card style) */}
+        {/* Work Cards */}
         <div className="space-y-12">
           {projects.map((proj) => (
             <div
@@ -94,11 +94,7 @@ export default function AWWorkSection() {
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  backgroundImage: `url(${proj.bgImg})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  opacity: 0.12,
-                  filter: 'grayscale(1) contrast(1.2)',
+                  background: proj.glowGradient,
                   pointerEvents: 'none',
                 }}
               />
@@ -150,21 +146,32 @@ export default function AWWorkSection() {
                   {proj.description}
                 </p>
 
-                {/* Metrics */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 pt-6 border-t border-white/[0.08]">
+                {/* Metrics Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                   {proj.metrics.map((m, idx) => (
-                    <div key={idx} className="glass p-4 rounded-2xl" style={{ background: 'rgba(0,0,0,0.5)' }}>
-                      <div className="text-2xl sm:text-3xl font-mono font-bold text-white mb-1">{m.value}</div>
-                      <div className="text-xs text-zinc-400 font-sans">{m.label}</div>
+                    <div
+                      key={idx}
+                      className="glass p-4 rounded-2xl border border-white/10"
+                      style={{ background: 'rgba(255, 255, 255, 0.03)' }}
+                    >
+                      <div className="text-2xl sm:text-3xl font-black font-mono text-white mb-1">
+                        {m.value}
+                      </div>
+                      <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider">
+                        {m.label}
+                      </div>
                     </div>
                   ))}
                 </div>
 
                 {/* Tech Pills */}
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-mono text-zinc-500 mr-2">Core Tech:</span>
-                  {proj.tech.map((t) => (
-                    <span key={t} className="chip glass" style={{ fontSize: '11px' }}>
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+                  {proj.tech.map((t, idx) => (
+                    <span
+                      key={idx}
+                      className="chip glass"
+                      style={{ padding: '6px 14px', fontSize: '11px' }}
+                    >
                       {t}
                     </span>
                   ))}

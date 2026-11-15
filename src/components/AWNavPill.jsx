@@ -24,7 +24,7 @@ export default function AWNavPill({ onOpenResume }) {
           <a href="#process" className="hover:text-white transition">Process</a>
           <a href="#why" className="hover:text-white transition">Why Sachin</a>
           <a href="#evals-lab" className="hover:text-white transition">Evals Lab</a>
-          <a href="#credentials" className="hover:text-white transition">BCA 2026</a>
+          <a href="#credentials" className="hover:text-white transition">Credentials</a>
           <a href="#faq" className="hover:text-white transition">FAQ</a>
         </nav>
 
@@ -88,7 +88,7 @@ export default function AWNavPill({ onOpenResume }) {
           <a href="#process" onClick={() => setOpen(false)} className="block py-1 hover:text-white">Engineering Methodology</a>
           <a href="#why" onClick={() => setOpen(false)} className="block py-1 hover:text-white">Why Hire Sachin</a>
           <a href="#evals-lab" onClick={() => setOpen(false)} className="block py-1 hover:text-white">Quantitative Evals Lab</a>
-          <a href="#credentials" onClick={() => setOpen(false)} className="block py-1 hover:text-white">Education & Credentials (BCA)</a>
+          <a href="#credentials" onClick={() => setOpen(false)} className="block py-1 hover:text-white">Education & Credentials (B.Tech & NSDC)</a>
           <a href="#faq" onClick={() => setOpen(false)} className="block py-1 hover:text-white">Technical FAQ</a>
           <div className="pt-3 border-t border-white/10 flex items-center gap-4">
             <a href="https://github.com/Sachin-dev001" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-white">

@@ -3,6 +3,8 @@ import { Mail, ArrowUpRight, FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 
 export default function AWFooterSection({ onOpenResume }) {
+  const email = 'Sachin.Sharma.37919@gmail.com';
+
   return (
     <footer className="footer border-t border-white/10" style={{ padding: '80px var(--gutter) 40px' }}>
       <div className="wrap">
@@ -23,11 +25,11 @@ export default function AWFooterSection({ onOpenResume }) {
             <div className="pt-2">
               <span className="inline-flex items-center gap-2 font-mono text-xs text-emerald-400 glass px-3 py-1.5 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Open for AI Engineering Roles &bull; BCA 2026
+                Open for AI Engineering Roles &bull; B.Tech CSE 2026
               </span>
             </div>
 
-            {/* Social Icons (Exact AW Media .round.glass) */}
+            {/* Social Icons */}
             <div className="socials flex items-center gap-3 pt-4">
               <a
                 href="https://github.com/Sachin-dev001"
@@ -50,7 +52,7 @@ export default function AWFooterSection({ onOpenResume }) {
               </a>
 
               <a
-                href="mailto:dev.sachinsharma01@gmail.com"
+                href={`mailto:${email}`}
                 className="w-10 h-10 rounded-full glass flex items-center justify-center text-zinc-300 hover:text-white hover:scale-105 transition"
                 title="Email"
               >
@@ -123,7 +125,7 @@ export default function AWFooterSection({ onOpenResume }) {
                 <a href="#process" className="hover:text-white transition">Engineering Methodology</a>
               </li>
               <li>
-                <a href="#credentials" className="hover:text-white transition">Academic Credentials (BCA)</a>
+                <a href="#credentials" className="hover:text-white transition">Credentials (B.Tech & NSDC)</a>
               </li>
               <li>
                 <a href="#faq" className="hover:text-white transition">Technical FAQ</a>
@@ -146,7 +148,7 @@ export default function AWFooterSection({ onOpenResume }) {
             &copy; 2026 Sachin Sharma. All rights reserved.
           </div>
           <div>
-            Production Generative AI &bull; Low Latency Systems
+            Poornima University &bull; B.Tech Computer Science &bull; NSDC AI & DS
           </div>
         </div>
       </div>

@@ -3,6 +3,8 @@ import { Mail, ArrowRight, FileText } from 'lucide-react';
 import { LinkedinIcon, GithubIcon } from './Icons';
 
 export default function AWCTASection({ onOpenResume }) {
+  const email = 'Sachin.Sharma.37919@gmail.com';
+
   return (
     <section className="cta relative text-center overflow-hidden" id="cta" style={{ padding: '120px var(--gutter)' }}>
       {/* Background Ambient Glow Lens */}
@@ -55,12 +57,12 @@ export default function AWCTASection({ onOpenResume }) {
           </button>
 
           <a
-            href="mailto:dev.sachinsharma01@gmail.com"
+            href={`mailto:${email}`}
             className="btn btn-glass glass btn-lg flex items-center gap-2"
             style={{ padding: '14px 28px', fontSize: '14px' }}
           >
             <Mail className="w-4 h-4" />
-            <span>dev.sachinsharma01@gmail.com</span>
+            <span>{email}</span>
           </a>
 
           <a

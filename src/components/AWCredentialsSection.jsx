@@ -4,18 +4,28 @@ import { GraduationCap, Award, BookOpen, Layers } from 'lucide-react';
 export default function AWCredentialsSection() {
   const credentials = [
     {
-      title: 'Bachelor of Computer Applications (BCA)',
-      org: 'Undergraduate Degree',
-      period: '2023 - 2026 (Graduating Year)',
-      desc: 'Rigorous foundational training across Data Structures & Algorithms, Distributed Systems, Relational & NoSQL Database Design, Operating Systems, and Python Software Engineering.',
-      tags: ['Data Structures & Algorithms', 'Distributed Systems', 'Database Internals', 'Python 3'],
+      title: 'Bachelor of Technology (B.Tech) in Computer Science & Engineering',
+      org: 'Poornima University',
+      badge: 'DEGREE • 2022 – 2026',
+      period: 'Graduating 2026',
+      desc: 'Rigorous engineering training across Data Structures & Algorithms, Artificial Intelligence, Database Management Systems (DBMS), Operating Systems, and Software Engineering.',
+      tags: ['Data Structures & Algorithms', 'Artificial Intelligence', 'Database Internals', 'Operating Systems', 'Python & C++'],
     },
     {
-      title: 'GenAI & Production RAG Systems Architecture',
-      org: 'Independent Engineering Track',
-      period: '2024 - Present',
-      desc: 'Specialized deep-dive in semantic vector search (HNSW), cross-encoder rerankers, deterministic agent state machines, synthetic eval set generation, and low-latency inference streaming.',
-      tags: ['Qdrant Vector DB', 'Cross-Encoders', 'Playwright Stealth', 'FastAPI SSE'],
+      title: 'Certificate in Artificial Intelligence & Data Science',
+      org: 'Skill India (Government of India / NSDC)',
+      badge: 'GOVT OF INDIA ACCREDITED',
+      period: 'Certified 2026',
+      desc: 'National Skill Development Corporation (NSDC) government certification in AI architectures, Machine Learning, Deep Learning models, statistical modeling, and data science pipelines.',
+      tags: ['Skill India', 'NSDC Govt of India', 'Machine Learning', 'Deep Learning', 'Data Science'],
+    },
+    {
+      title: 'Production GenAI & Agentic Systems Architecture',
+      org: 'Independent Applied Engineering',
+      badge: 'PRODUCTION SYSTEMS',
+      period: '2024 – Present',
+      desc: 'Architecting high-throughput video RAG pipelines with Qdrant and BAAI cross-encoders (+28% precision lift), autonomous Playwright stealth agents with zero bot flags, and automated LLM eval suites.',
+      tags: ['Qdrant HNSW', 'BAAI Cross-Encoder', 'Playwright Stealth', 'FastAPI SSE', 'Ragas & DeepEval'],
     },
   ];
 
@@ -49,38 +59,39 @@ export default function AWCredentialsSection() {
         </div>
 
         <span className="font-mono text-xs text-zinc-400">
-          BACHELOR OF COMPUTER APPLICATIONS &bull; 2026
+          B.TECH IN COMPUTER SCIENCE &bull; 2022–2026
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {credentials.map((cred, idx) => (
           <div
             key={idx}
             className="glass p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between hover:border-white/30 transition-all"
           >
             <div>
-              <div className="flex items-center justify-between gap-4 mb-4">
-                <span className="font-mono text-xs text-emerald-400 uppercase tracking-wider bg-emerald-950/40 border border-emerald-500/20 px-3 py-1 rounded-full">
-                  {cred.org}
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <span className="font-mono text-[10.5px] text-emerald-400 uppercase tracking-wider bg-emerald-950/40 border border-emerald-500/20 px-3 py-1 rounded-full">
+                  {cred.badge}
                 </span>
                 <span className="font-mono text-xs text-zinc-400">{cred.period}</span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+              <span className="font-mono text-xs text-zinc-400 block mb-1">{cred.org}</span>
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3 tracking-tight">
                 {cred.title}
               </h3>
 
-              <p className="text-zinc-300 font-sans text-sm leading-relaxed mb-6">
+              <p className="text-zinc-300 font-sans text-xs sm:text-sm leading-relaxed mb-6">
                 {cred.desc}
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+            <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/10">
               {cred.tags.map((t, i) => (
                 <span
                   key={i}
-                  className="font-mono text-[11px] text-zinc-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full"
+                  className="font-mono text-[10.5px] text-zinc-300 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full"
                 >
                   {t}
                 </span>

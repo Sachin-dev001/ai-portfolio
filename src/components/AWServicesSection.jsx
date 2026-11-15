@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Cpu, Bot, CheckCircle2, Zap } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const SERVICES = [
   {
@@ -28,7 +28,7 @@ const SERVICES = [
   },
   {
     num: '04',
-    title: 'Low-Latency Inference & Full-Stack Integration',
+    title: 'Low-Latency Inference & Production Streaming',
     tag: 'PRODUCTION SYSTEMS',
     blurb:
       'End-to-end production pipelines powered by FastAPI, asynchronous task queues, Server-Sent Events (SSE) streaming at 60 FPS, Supabase Row-Level Security, and containerized Docker runtimes.',
@@ -55,7 +55,7 @@ export default function AWServicesSection() {
         Core Capabilities
       </span>
 
-      {/* Main Title (Identical to AW Media) */}
+      {/* Main Title */}
       <h2 className="display services-title reveal-lines mb-14">
         <span className="line">
           <span className="line-in">Stop building brittle AI demos</span>
@@ -68,7 +68,7 @@ export default function AWServicesSection() {
         </span>
       </h2>
 
-      {/* Rows Table (Exact AW Media structure) */}
+      {/* Rows Table */}
       <div className="rows border-b border-white/10">
         {SERVICES.map((svc) => (
           <div
@@ -93,9 +93,9 @@ export default function AWServicesSection() {
             </div>
 
             <div className="hidden md:flex justify-end items-center">
-              <span className="row-cta text-xs font-mono text-zinc-400 group-hover:text-white flex items-center gap-1 transition">
+              <span className="row-cta text-xs font-mono flex items-center gap-1.5">
                 <span>Production Spec</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
             </div>
           </div>

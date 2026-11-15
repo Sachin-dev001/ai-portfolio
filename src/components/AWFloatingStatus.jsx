@@ -4,7 +4,7 @@ import { Mail, Copy, Check, X, ArrowUpRight } from 'lucide-react';
 export default function AWFloatingStatus() {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const email = 'dev.sachinsharma01@gmail.com';
+  const email = 'Sachin.Sharma.37919@gmail.com';
 
   const copyEmail = () => {
     navigator.clipboard.writeText(email);

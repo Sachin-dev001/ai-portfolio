@@ -33,7 +33,7 @@ export default function App() {
       <AWNavPill onOpenResume={() => setIsResumeOpen(true)} />
 
       <main className="relative z-10">
-        {/* 4. Hero Section: Cinematic Looping Video + Prominent SACHIN SHARMA + Proof Points */}
+        {/* 4. Hero Section: Cinematic Looping Video + Prominent SACHIN SHARMA + AI Systems Engineer */}
         <AWHeroCinematic onOpenResume={() => setIsResumeOpen(true)} />
 
         {/* 5. 3D Perspective Device Stage: "Built like this." with Interactive Console */}
@@ -60,7 +60,7 @@ export default function App() {
         {/* 12. Quantitative Evals & RAG Benchmarking Lab */}
         <AWEvalsSection />
 
-        {/* 13. Academic Credentials: BCA Degree (2026) & Core Systems */}
+        {/* 13. Academic Credentials: B.Tech in CSE (Poornima University, 2026) & NSDC AI/DS Govt Cert */}
         <AWCredentialsSection />
 
         {/* 14. Technical FAQ: Accordion */}
