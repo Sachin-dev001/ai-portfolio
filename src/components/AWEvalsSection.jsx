@@ -66,10 +66,10 @@ export default function AWEvalsSection() {
   };
 
   return (
-    <section className="evals wrap" id="evals-lab" style={{ padding: '100px var(--gutter)' }}>
+    <section className="evals wrap" id="evals-lab" style={{ padding: '80px var(--gutter)' }}>
       {/* Header */}
-      <div className="mb-12">
-        <span className="chip glass inline-block mb-6" data-liquid="chip">
+      <div className="mb-10">
+        <span className="chip glass inline-block mb-4" data-liquid="chip">
           <i
             style={{
               width: '6px',
@@ -93,15 +93,15 @@ export default function AWEvalsSection() {
           </span>
         </h2>
 
-        <p className="text-zinc-400 font-sans text-base max-w-2xl mt-4">
+        <p className="text-zinc-400 font-sans text-sm sm:text-base max-w-2xl mt-3">
           Test real-time retrieval parameters. Toggle the BAAI Cross-Encoder reranker to observe quantitative precision lifts, distractor chunk demotions, and streaming latencies.
         </p>
       </div>
 
       {/* Main Glass Console */}
-      <div className="glass p-6 sm:p-10 rounded-3xl relative overflow-hidden">
+      <div className="glass p-5 sm:p-10 rounded-3xl relative overflow-hidden">
         {/* Controls Toolbar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/10">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
           {/* Query Selector Tabs */}
           <div className="flex flex-wrap items-center gap-2">
             {PRESET_QUERIES.map((q, idx) => (
@@ -109,7 +109,7 @@ export default function AWEvalsSection() {
                 key={q.id}
                 onClick={() => setSelectedIdx(idx)}
                 className={`btn ${selectedIdx === idx ? 'btn-solid' : 'btn-glass glass'}`}
-                style={{ padding: '8px 18px', fontSize: '13px' }}
+                style={{ padding: '7px 16px', fontSize: '12px' }}
               >
                 <span>{q.label}</span>
               </button>
@@ -117,14 +117,14 @@ export default function AWEvalsSection() {
           </div>
 
           {/* Reranker Toggle */}
-          <div className="flex items-center gap-3 glass px-4 py-2 rounded-full">
+          <div className="flex items-center justify-between sm:justify-start gap-3 glass px-3.5 py-1.5 rounded-full">
             <span className="font-mono text-xs text-zinc-300">BAAI Cross-Encoder:</span>
             <button
               onClick={() => {
                 setRerankerEnabled(!rerankerEnabled);
                 runEvaluation();
               }}
-              className={`px-3 py-1 rounded-full font-mono text-xs font-bold transition-all ${
+              className={`px-3 py-1 rounded-full font-mono text-[11px] font-bold transition-all ${
                 rerankerEnabled
                   ? 'bg-emerald-400 text-black shadow-[0_0_12px_#2bd67b]'
                   : 'bg-zinc-800 text-zinc-400 border border-white/10'
@@ -136,19 +136,19 @@ export default function AWEvalsSection() {
         </div>
 
         {/* Query Display */}
-        <div className="py-6 border-b border-white/10">
-          <span className="font-mono text-xs text-zinc-500 block mb-2">INPUT QUERY:</span>
-          <p className="font-mono text-sm sm:text-base text-white font-medium">
+        <div className="py-5 border-b border-white/10">
+          <span className="font-mono text-[11px] text-zinc-500 block mb-1">INPUT QUERY:</span>
+          <p className="font-mono text-xs sm:text-sm text-white font-medium">
             "{activeQuery.query}"
           </p>
         </div>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-b border-white/10">
-          <div className="glass p-4 rounded-2xl">
-            <span className="font-mono text-[11px] text-zinc-400 block mb-1">CONTEXT PRECISION</span>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 py-5 border-b border-white/10">
+          <div className="glass p-3.5 rounded-2xl">
+            <span className="font-mono text-[10px] text-zinc-400 block mb-1">CONTEXT PRECISION</span>
             <span
-              className={`font-mono text-2xl font-black ${
+              className={`font-mono text-xl sm:text-2xl font-black ${
                 rerankerEnabled ? 'text-emerald-400' : 'text-amber-400'
               }`}
             >
@@ -156,30 +156,30 @@ export default function AWEvalsSection() {
             </span>
           </div>
 
-          <div className="glass p-4 rounded-2xl">
-            <span className="font-mono text-[11px] text-zinc-400 block mb-1">FAITHFULNESS SCORE</span>
-            <span className="font-mono text-2xl font-black text-white">{evalData.faithfulness}</span>
+          <div className="glass p-3.5 rounded-2xl">
+            <span className="font-mono text-[10px] text-zinc-400 block mb-1">FAITHFULNESS SCORE</span>
+            <span className="font-mono text-xl sm:text-2xl font-black text-white">{evalData.faithfulness}</span>
           </div>
 
-          <div className="glass p-4 rounded-2xl">
-            <span className="font-mono text-[11px] text-zinc-400 block mb-1">STREAMING TTFT</span>
-            <span className="font-mono text-2xl font-black text-white">{evalData.latency}</span>
+          <div className="glass p-3.5 rounded-2xl">
+            <span className="font-mono text-[10px] text-zinc-400 block mb-1">STREAMING TTFT</span>
+            <span className="font-mono text-xl sm:text-2xl font-black text-white">{evalData.latency}</span>
           </div>
 
-          <div className="glass p-4 rounded-2xl">
-            <span className="font-mono text-[11px] text-zinc-400 block mb-1">DISTRACTOR DEMOTION</span>
+          <div className="glass p-3.5 rounded-2xl">
+            <span className="font-mono text-[10px] text-zinc-400 block mb-1">DISTRACTOR DEMOTION</span>
             <span
-              className={`font-mono text-sm font-bold flex items-center gap-1.5 mt-2 ${
+              className={`font-mono text-xs sm:text-sm font-bold flex items-center gap-1 mt-1 ${
                 evalData.distractorDemoted ? 'text-emerald-400' : 'text-rose-400'
               }`}
             >
               {evalData.distractorDemoted ? (
                 <>
-                  <CheckCircle2 className="w-4 h-4" /> Demoted
+                  <CheckCircle2 className="w-3.5 h-3.5" /> Demoted
                 </>
               ) : (
                 <>
-                  <AlertTriangle className="w-4 h-4" /> Contaminated
+                  <AlertTriangle className="w-3.5 h-3.5" /> Alert
                 </>
               )}
             </span>
@@ -187,17 +187,17 @@ export default function AWEvalsSection() {
         </div>
 
         {/* Evaluated Output & Grounded Citation */}
-        <div className="pt-6 space-y-4">
+        <div className="pt-5 space-y-3">
           <div>
-            <span className="font-mono text-xs text-zinc-500 block mb-2">VERIFIED GROUNDED CITATION:</span>
-            <div className="p-3 rounded-xl bg-black/60 border border-white/10 font-mono text-xs text-zinc-300">
+            <span className="font-mono text-[11px] text-zinc-500 block mb-1">VERIFIED GROUNDED CITATION:</span>
+            <div className="p-3 rounded-xl bg-black/60 border border-white/10 font-mono text-[11px] sm:text-xs text-zinc-300">
               {evalData.citation}
             </div>
           </div>
 
           <div>
-            <span className="font-mono text-xs text-zinc-500 block mb-2">SYNTHESIZED RESPONSE:</span>
-            <p className="text-zinc-200 text-sm leading-relaxed font-sans bg-white/[0.02] p-4 rounded-2xl border border-white/5">
+            <span className="font-mono text-[11px] text-zinc-500 block mb-1">SYNTHESIZED RESPONSE:</span>
+            <p className="text-zinc-200 text-xs sm:text-sm leading-relaxed font-sans bg-white/[0.02] p-3.5 rounded-2xl border border-white/5">
               {evalData.answer}
             </p>
           </div>

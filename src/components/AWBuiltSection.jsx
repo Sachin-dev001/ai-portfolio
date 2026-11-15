@@ -48,8 +48,8 @@ export default function AWBuiltSection() {
   };
 
   return (
-    <section className="built" id="built" style={{ padding: '120px 0 80px' }}>
-      <div className="built-head text-center" style={{ maxWidth: '960px', margin: '0 auto' }}>
+    <section className="built" id="built" style={{ padding: '100px 0 60px' }}>
+      <div className="built-head text-center px-4" style={{ maxWidth: '960px', margin: '0 auto' }}>
         <span className="chip glass" data-liquid="chip">
           <i
             style={{
@@ -62,10 +62,10 @@ export default function AWBuiltSection() {
               display: 'inline-block',
             }}
           />
-          Flagship Builds &bull; VideoSage AI & AutoApply
+          Flagship Architecture Console
         </span>
 
-        <h2 className="display reveal-lines" style={{ marginTop: '24px' }}>
+        <h2 className="display reveal-lines" style={{ marginTop: '20px' }}>
           <span className="line">
             <span className="line-in">
               Built <span className="chrome">like this.</span>
@@ -73,22 +73,22 @@ export default function AWBuiltSection() {
           </span>
         </h2>
 
-        <p className="lede" style={{ marginTop: '20px', maxWidth: '640px', marginInline: 'auto' }}>
-          Interactive 3D system console. Toggle between production architectures and test real-time telemetry streaming.
+        <p className="lede" style={{ marginTop: '16px', maxWidth: '640px', marginInline: 'auto' }}>
+          Interactive system console. Toggle between production architectures and test real-time telemetry streaming.
         </p>
       </div>
 
-      {/* 3D Perspective Device Mockup (Exact AW Media structure) */}
-      <div className="built-stage" data-built-stage="" style={{ marginTop: '50px' }}>
+      {/* 3D Perspective Device Mockup */}
+      <div className="built-stage" data-built-stage="" style={{ marginTop: '40px' }}>
         <div className="device glass built-device" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           {/* Top Device Bar with macOS lights and URL bar */}
-          <div className="device-bar">
-            <span className="lights">
+          <div className="device-bar flex items-center justify-between">
+            <span className="lights flex items-center gap-1.5">
               <i style={{ backgroundColor: '#ff5f56' }} />
               <i style={{ backgroundColor: '#ffbd2e' }} />
               <i style={{ backgroundColor: '#27c93f' }} />
             </span>
-            <span className="url glass">
+            <span className="url glass truncate max-w-[200px] sm:max-w-none text-xs">
               <em>https://</em>
               {activeTab === 'videosage' ? 'videosage.ai/rag-pipeline' : 'autoapply.agent/stealth'}
             </span>
@@ -98,17 +98,17 @@ export default function AWBuiltSection() {
           </div>
 
           {/* Device Inner Content */}
-          <div className="built-screen" style={{ padding: '28px', background: '#07080b', borderRadius: '0 0 24px 24px' }}>
+          <div className="built-screen" style={{ background: '#07080b', borderRadius: '0 0 24px 24px' }}>
             {/* Pipeline Tabs */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-white/[0.08]">
-              <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-white/[0.08]">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
                 <button
                   onClick={() => {
                     setActiveTab('videosage');
                     setLogs(['Switched to VideoSage AI. Click "Run Live Simulation" to test.']);
                   }}
-                  className={`btn ${activeTab === 'videosage' ? 'btn-solid' : 'btn-glass glass'}`}
-                  style={{ padding: '10px 20px', fontSize: '13px' }}
+                  className={`btn ${activeTab === 'videosage' ? 'btn-solid' : 'btn-glass glass'} justify-center`}
+                  style={{ padding: '9px 18px', fontSize: '12.5px' }}
                 >
                   <Database className="w-3.5 h-3.5 mr-2" />
                   <span>VideoSage AI (Video RAG)</span>
@@ -119,8 +119,8 @@ export default function AWBuiltSection() {
                     setActiveTab('autoapply');
                     setLogs(['Switched to AutoApply Agent. Click "Run Live Simulation" to test.']);
                   }}
-                  className={`btn ${activeTab === 'autoapply' ? 'btn-solid' : 'btn-glass glass'}`}
-                  style={{ padding: '10px 20px', fontSize: '13px' }}
+                  className={`btn ${activeTab === 'autoapply' ? 'btn-solid' : 'btn-glass glass'} justify-center`}
+                  style={{ padding: '9px 18px', fontSize: '12.5px' }}
                 >
                   <Bot className="w-3.5 h-3.5 mr-2" />
                   <span>AutoApply (Stealth Agent)</span>
@@ -130,10 +130,10 @@ export default function AWBuiltSection() {
               <button
                 onClick={simulatePipeline}
                 disabled={isSimulating}
-                className="btn btn-solid"
+                className="btn btn-solid w-full sm:w-auto justify-center"
                 style={{
-                  padding: '10px 24px',
-                  fontSize: '13px',
+                  padding: '9px 22px',
+                  fontSize: '12.5px',
                   background: 'linear-gradient(180deg, #2bd67b 0%, #1ea85d 100%)',
                   color: '#000',
                   boxShadow: '0 0 25px rgba(43,214,123,0.4)',
@@ -145,9 +145,9 @@ export default function AWBuiltSection() {
             </div>
 
             {/* Topology & Telemetry Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-5">
               {/* Architecture Blueprint (7 cols) */}
-              <div className="lg:col-span-7 p-6 rounded-2xl glass flex flex-col justify-between space-y-6">
+              <div className="lg:col-span-7 p-5 sm:p-6 rounded-2xl glass flex flex-col justify-between space-y-4">
                 <div>
                   <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider mb-2 flex items-center gap-2">
                     <Layers className="w-4 h-4 text-zinc-300" />
@@ -155,34 +155,34 @@ export default function AWBuiltSection() {
                   </div>
 
                   {activeTab === 'videosage' ? (
-                    <div className="space-y-3 pt-2">
-                      <div className="text-xl font-bold text-white">Timestamp-Aware Semantic Vector Search</div>
-                      <p className="text-sm text-zinc-300 leading-relaxed font-sans">
+                    <div className="space-y-2 pt-1">
+                      <div className="text-lg sm:text-xl font-bold text-white">Timestamp-Aware Semantic Vector Search</div>
+                      <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
                         Multi-hour video transcripts are segmented by speaker pauses into semantic windows. Qdrant HNSW vector index yields top-20 nearest chunks, which are then passed through a BAAI cross-encoder to elevate retrieval precision by <span className="text-white font-semibold">+28%</span> before Gemini 2.5 Flash streaming.
                       </p>
                     </div>
                   ) : (
-                    <div className="space-y-3 pt-2">
-                      <div className="text-xl font-bold text-white">Autonomous Multi-Platform Web Agent</div>
-                      <p className="text-sm text-zinc-300 leading-relaxed font-sans">
+                    <div className="space-y-2 pt-1">
+                      <div className="text-lg sm:text-xl font-bold text-white">Autonomous Multi-Platform Web Agent</div>
+                      <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
                         Employs Playwright stealth with human-emulated typing jitter (Gaussian latency distribution) and CDP attribute masking. An intelligent Recruiter Q&A Memory Vault answers screening questions, backed by Telegram Human-In-The-Loop fallback for 100% accuracy.
                       </p>
                     </div>
                   )}
                 </div>
 
-                <div className="pt-4 border-t border-white/[0.08] flex flex-wrap gap-2 text-[11px] font-mono">
+                <div className="pt-3 border-t border-white/[0.08] flex flex-wrap gap-1.5 text-[11px] font-mono">
                   {activeTab === 'videosage' && ['Python 3.11', 'Qdrant HNSW', 'BAAI Reranker', 'Gemini 2.5 Flash', 'Streamlit Cloud'].map(b => (
-                    <span key={b} className="chip glass" style={{ padding: '6px 14px', fontSize: '11px' }}>{b}</span>
+                    <span key={b} className="chip glass" style={{ padding: '5px 12px', fontSize: '10.5px' }}>{b}</span>
                   ))}
                   {activeTab === 'autoapply' && ['Python', 'Playwright Stealth', 'Gemini Flash', 'Supabase RLS', 'Telegram HITL'].map(b => (
-                    <span key={b} className="chip glass" style={{ padding: '6px 14px', fontSize: '11px' }}>{b}</span>
+                    <span key={b} className="chip glass" style={{ padding: '5px 12px', fontSize: '10.5px' }}>{b}</span>
                   ))}
                 </div>
               </div>
 
               {/* Console Output (5 cols) */}
-              <div className="lg:col-span-5 p-5 rounded-2xl glass flex flex-col justify-between" style={{ background: '#040507' }}>
+              <div className="lg:col-span-5 p-4 sm:p-5 rounded-2xl glass flex flex-col justify-between" style={{ background: '#040507' }}>
                 <div className="flex items-center justify-between pb-3 border-b border-white/[0.08] text-xs font-mono text-zinc-400">
                   <span className="flex items-center gap-1.5">
                     <Terminal className="w-3.5 h-3.5 text-emerald-400" />
@@ -191,9 +191,9 @@ export default function AWBuiltSection() {
                   <span className="text-[10px] text-zinc-500">Live Stream</span>
                 </div>
 
-                <div className="py-4 space-y-2 font-mono text-[11.5px] text-zinc-300 h-56 overflow-y-auto leading-relaxed">
+                <div className="py-3 space-y-2 font-mono text-[11px] sm:text-[11.5px] text-zinc-300 h-48 sm:h-56 overflow-y-auto leading-relaxed">
                   {logs.map((log, idx) => (
-                    <div key={idx} className="flex items-start gap-2">
+                    <div key={idx} className="flex items-start gap-1.5">
                       <span className="text-zinc-600 select-none">&gt;</span>
                       <span className={log.includes('Lift') || log.includes('APPROVED') || log.includes('verified') ? 'text-emerald-400 font-bold' : 'text-zinc-300'}>
                         {log}
