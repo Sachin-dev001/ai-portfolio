@@ -1,0 +1,9 @@
+@import "./awmedia-tokens.css";
+@import "./awmedia-main.css";
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-rethink-sans: 'Rethink Sans', system-ui, -apple-system, sans-serif;
+  }
+}
