@@ -56,10 +56,24 @@ const PROCESS_STEPS = [
 
 export default function AWProcessSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const total = PROCESS_STEPS.length;
+
+  const touchStartXRef = useRef(0);
+  const touchEndXRef = useRef(0);
 
   const nextStep = () => setActiveIndex((prev) => (prev + 1) % total);
   const prevStep = () => setActiveIndex((prev) => (prev - 1 + total) % total);
+
+  // Detect mobile width
+  useEffect(() => {
+    const checkWidth = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+    return () => window.removeEventListener('resize', checkWidth);
+  }, []);
 
   // Keyboard navigation
   useEffect(() => {
@@ -70,6 +84,23 @@ export default function AWProcessSection() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
+
+  // Touch swipe delta detection
+  const handleTouchStart = (e) => {
+    touchStartXRef.current = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (e) => {
+    touchEndXRef.current = e.changedTouches[0].screenX;
+    const diff = touchStartXRef.current - touchEndXRef.current;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        nextStep(); // swipe left -> next
+      } else {
+        prevStep(); // swipe right -> prev
+      }
+    }
+  };
 
   return (
     <section id="process" className="relative py-20 sm:py-28 overflow-hidden bg-[#fbf3e2]">
@@ -84,7 +115,7 @@ export default function AWProcessSection() {
             From problem to production, in five clear steps.
           </h2>
           <p className="font-hand font-bold text-xl sm:text-2xl text-[#3a7bff] -rotate-1 pt-1">
-            spin it → (click a card, use step pills, or use ← → keys)
+            spin it → (swipe, click a card, or use ← → keys)
           </p>
         </div>
 
@@ -94,7 +125,7 @@ export default function AWProcessSection() {
             <button
               key={idx}
               onClick={() => setActiveIndex(idx)}
-              className={`px-3.5 py-1.5 rounded-xl border-2 font-mono text-xs sm:text-sm font-bold transition-all shadow-[2px_2px_0_#241f1a] ${
+              className={`px-3.5 py-1.5 rounded-xl border-2 font-mono text-xs sm:text-sm font-bold transition-all shadow-[2px_2px_0_#241f1a] min-h-[38px] ${
                 activeIndex === idx
                   ? 'bg-[#241f1a] text-[#fbf3e2] border-[#241f1a] scale-105'
                   : 'bg-white text-[#241f1a] border-[#241f1a] hover:bg-[#fff6e0]'
@@ -105,35 +136,36 @@ export default function AWProcessSection() {
           ))}
         </div>
 
-        {/* 3D Circular Carousel Stage */}
-        <div className="relative h-[480px] sm:h-[460px] max-w-4xl mx-auto flex items-center justify-center">
+        {/* 3D Circular Carousel Stage with Touch Swipe Handler */}
+        <div 
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="relative h-[480px] sm:h-[460px] max-w-4xl mx-auto flex items-center justify-center touch-pan-y"
+        >
           {PROCESS_STEPS.map((step, idx) => {
             // Calculate 3D circular offset
             const offset = (idx - activeIndex + total) % total;
-            // Map offset: 0 is active center, 1 & 4 are sides, 2 & 3 are behind
             let zIndex = 10;
             let transform = 'translateX(-50%) scale(0.7) translateY(40px)';
             let opacity = 0.35;
             let filter = 'blur(1.5px)';
-            let isCenter = false;
 
             if (offset === 0) {
               zIndex = 30;
               transform = 'translateX(-50%) scale(1) translateY(0px)';
               opacity = 1;
               filter = 'blur(0px)';
-              isCenter = true;
             } else if (offset === 1 || offset === total - 1) {
               const xShift = offset === 1 ? '160px' : '-160px';
               zIndex = 20;
               transform = `translateX(calc(-50% + ${xShift})) scale(0.85) translateY(18px)`;
-              opacity = 0.75;
+              opacity = isMobile ? 0 : 0.75;
               filter = 'blur(0.5px)';
             } else {
               const xShift = offset === 2 ? '280px' : '-280px';
               zIndex = 10;
               transform = `translateX(calc(-50% + ${xShift})) scale(0.7) translateY(36px)`;
-              opacity = 0.25;
+              opacity = isMobile ? 0 : 0.25;
               filter = 'blur(2px)';
             }
 
@@ -141,7 +173,7 @@ export default function AWProcessSection() {
               <div
                 key={step.num}
                 onClick={() => setActiveIndex(idx)}
-                className="witem"
+                className={`witem ${isMobile && offset !== 0 ? 'pointer-events-none' : ''}`}
                 style={{
                   transform,
                   opacity,
@@ -193,7 +225,7 @@ export default function AWProcessSection() {
         <div className="flex items-center justify-center gap-6 pt-4">
           <button
             onClick={prevStep}
-            className="w-12 h-12 rounded-full border-[2.5px] border-[#241f1a] bg-[#fffaf0] hover:bg-[#ffc23c] font-bold text-xl flex items-center justify-center shadow-[3px_3px_0_#241f1a] active:translate-x-0.5 active:translate-y-0.5 transition-all"
+            className="w-12 h-12 rounded-full border-[2.5px] border-[#241f1a] bg-[#fffaf0] hover:bg-[#ffc23c] font-bold text-xl flex items-center justify-center shadow-[3px_3px_0_#241f1a] active:translate-x-0.5 active:translate-y-0.5 transition-all min-h-[48px] min-w-[48px]"
             aria-label="Previous step"
           >
             ←
@@ -203,7 +235,7 @@ export default function AWProcessSection() {
           </span>
           <button
             onClick={nextStep}
-            className="w-12 h-12 rounded-full border-[2.5px] border-[#241f1a] bg-[#fffaf0] hover:bg-[#ffc23c] font-bold text-xl flex items-center justify-center shadow-[3px_3px_0_#241f1a] active:translate-x-0.5 active:translate-y-0.5 transition-all"
+            className="w-12 h-12 rounded-full border-[2.5px] border-[#241f1a] bg-[#fffaf0] hover:bg-[#ffc23c] font-bold text-xl flex items-center justify-center shadow-[3px_3px_0_#241f1a] active:translate-x-0.5 active:translate-y-0.5 transition-all min-h-[48px] min-w-[48px]"
             aria-label="Next step"
           >
             →

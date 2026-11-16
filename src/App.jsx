@@ -9,6 +9,7 @@ import AWServicesSection from './components/AWServicesSection';
 import AWProcessSection from './components/AWProcessSection';
 import AWWhySection from './components/AWWhySection';
 import AWEvalsSection from './components/AWEvalsSection';
+import AWGlobeSection from './components/AWGlobeSection';
 import AWCredentialsSection from './components/AWCredentialsSection';
 import AWFAQSection from './components/AWFAQSection';
 import AWCTASection from './components/AWCTASection';
@@ -22,10 +23,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#fbf3e2] text-[#241f1a] selection:bg-[#ffc23c] selection:text-[#241f1a] relative overflow-x-hidden font-sans">
       
-      {/* 1. Sticky Wavy Neo-Brutalist Navigation Header */}
+      {/* 1. Persistent Sticky Wavy Neo-Brutalist Navigation Header (Fixed Top) */}
       <AWNavPill onOpenResume={() => setIsResumeOpen(true)} />
 
-      <main className="relative z-10">
+      <main className="relative z-10 pt-16 sm:pt-20">
         {/* 2. Hero Section: 2-Column Warm Paper & Overlapping Taped Index Cards */}
         <AWHeroCinematic onOpenResume={() => setIsResumeOpen(true)} />
 
@@ -53,23 +54,26 @@ export default function App() {
         {/* 10. Quantitative Evals & RAG Benchmarking Lab */}
         <AWEvalsSection />
 
-        {/* 11. Education & Credentials: B.Tech CSE (2026) & Skill India Govt NSDC */}
+        {/* 11. Interactive Draggable Sketchbook Globe ("Ships wherever your teams build.") */}
+        <AWGlobeSection />
+
+        {/* 12. Education & Credentials: B.Tech CSE (2026) & Skill India Govt NSDC */}
         <AWCredentialsSection />
 
-        {/* 12. Technical FAQ: Accordion Cards */}
+        {/* 13. Technical FAQ: Accordion Cards */}
         <AWFAQSection />
 
-        {/* 13. High-Impact Call to Action with Paper Plane & Doodles */}
+        {/* 14. High-Impact Call to Action with Paper Plane & Doodles */}
         <AWCTASection onOpenResume={() => setIsResumeOpen(true)} />
       </main>
 
-      {/* 14. Deep Charcoal / Dark Ink Footer */}
+      {/* 15. Deep Charcoal / Dark Ink Footer */}
       <AWFooterSection onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* 15. Persistent Floating Bottom-Left Status Pill ("● Open to work · AI Engineer") */}
+      {/* 16. Persistent Floating Bottom-Left Status Pill ("● Open to work · AI Engineer") */}
       <AWFloatingStatus />
 
-      {/* 16. ATS Resume High-Res Modal Viewer */}
+      {/* 17. ATS Resume High-Res Modal Viewer */}
       <ResumeModalLuxury isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </div>
   );

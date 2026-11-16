@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import PaperPlaneDoodle from './stationery/PaperPlaneDoodle';
 
 const NAV_LINKS = [
   { label: 'Architecture', href: '#architecture' },
   { label: 'Work', href: '#work' },
   { label: 'Capabilities', href: '#capabilities' },
   { label: 'Process', href: '#process' },
-  { label: 'Why Sachin', href: '#why' },
   { label: 'Evals Lab', href: '#evals' },
+  { label: 'Globe', href: '#everywhere' },
   { label: 'Credentials', href: '#credentials' },
   { label: 'FAQ', href: '#faq' },
 ];
@@ -16,47 +15,81 @@ export default function AWNavPill({ onOpenResume }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#fbf3e2]/95 backdrop-blur-sm transition-all duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20 gap-3">
+    <header 
+      className="fixed top-0 left-0 right-0 z-[1000] transition-all duration-200"
+      style={{
+        backgroundColor: 'rgba(250, 246, 239, 0.90)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-20 gap-2 sm:gap-4">
           
-          {/* Brand */}
+          {/* Brand Logo (Left): Blue paper plane SVG + Bold Serif Sachin Sharma */}
           <a
             href="#top"
             className="flex items-center gap-2 group cursor-pointer flex-shrink-0"
             aria-label="Sachin Sharma Portfolio Home"
           >
-            <PaperPlaneDoodle color="#3a7bff" size={28} className="group-hover:rotate-12 transition-transform duration-200" />
-            <span className="font-display font-black text-base sm:text-2xl text-[#241f1a] tracking-tight">
-              SACHIN SHARMA
-            </span>
-            <span className="items-center px-2 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#eafaf4] text-[#1fbfa4] border border-[#1fbfa4]/40 shadow-sm ml-1 hidden lg:inline-flex">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#36c25f] animate-ping mr-1.5" />
-              ONLINE
-            </span>
+            {/* Hand-drawn blue paper-plane SVG icon (#4A80F0 fill with 2px #1A1917 ink stroke) */}
+            <div className="w-7 h-7 sm:w-9 sm:h-9 flex items-center justify-center transform group-hover:-rotate-12 transition-transform duration-200 flex-shrink-0">
+              <svg 
+                viewBox="0 0 64 64" 
+                className="w-full h-full filter drop-shadow-[1px_1px_0_#1A1917]"
+                aria-hidden="true"
+              >
+                <path 
+                  d="M4 30 L60 6 L40 58 L31 40 Z" 
+                  fill="#4A80F0" 
+                  stroke="#1A1917" 
+                  strokeWidth="2.5" 
+                  strokeLinejoin="round" 
+                />
+                <path 
+                  d="M60 6 L31 40" 
+                  stroke="#1A1917" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                />
+              </svg>
+            </div>
+            
+            <div className="flex items-baseline gap-1.5 sm:gap-2">
+              <span className="font-display font-black text-lg sm:text-2xl text-[#1A1917] tracking-tight">
+                Sachin Sharma
+              </span>
+              <span className="hidden xl:inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#eafaf4] text-[#1fbfa4] border border-[#1fbfa4]/40 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#36c25f] animate-ping mr-1.5" />
+                ONLINE
+              </span>
+            </div>
           </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 font-sans font-bold text-[14.5px] text-[#544b3f]">
+          {/* Desktop Nav Links with animated coral-red (#FF5A4F) underline bar */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-7 font-sans font-bold text-[14.5px] text-[#544b3f]">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="relative py-1 hover:text-[#ff5a5f] transition-colors duration-150 group"
+                className="relative py-1 hover:text-[#1A1917] transition-colors duration-150 group"
               >
                 {link.label}
-                <span className="absolute left-0 right-0 -bottom-0.5 h-[2px] bg-[#ff5a5f] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200" />
+                {/* Coral-red underline bar that expands left-to-right on hover */}
+                <span 
+                  className="absolute left-0 right-0 -bottom-0.5 h-[2.5px] bg-[#FF5A4F] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200" 
+                />
               </a>
             ))}
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
             <a
               href="https://github.com/Sachin-dev001"
               target="_blank"
               rel="noreferrer"
-              className="p-2 text-[#241f1a] hover:text-[#3a7bff] transition-colors rounded-lg hidden sm:flex"
+              className="p-2 text-[#1A1917] hover:text-[#4A80F0] transition-colors rounded-lg hidden sm:flex"
               aria-label="GitHub Profile"
             >
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -68,7 +101,7 @@ export default function AWNavPill({ onOpenResume }) {
               href="https://linkedin.com/in/sachin-sharma-659ab53b6"
               target="_blank"
               rel="noreferrer"
-              className="p-2 text-[#241f1a] hover:text-[#0A66C2] transition-colors rounded-lg hidden sm:flex"
+              className="p-2 text-[#1A1917] hover:text-[#0A66C2] transition-colors rounded-lg hidden sm:flex"
               aria-label="LinkedIn Profile"
             >
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -76,18 +109,19 @@ export default function AWNavPill({ onOpenResume }) {
               </svg>
             </a>
 
-            {/* Coral CTA Button */}
+            {/* Coral Pill CTA Button: #FF5A4F fill, white text, 2px solid #1A1917, 3px 3px 0px #1A1917 hard offset shadow */}
             <button
               onClick={onOpenResume}
-              className="btn-paper btn-coral text-xs sm:text-base py-1 px-3 sm:py-2 sm:px-5 font-bold shadow-[2px_2px_0_#241f1a]"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-1 sm:px-5 sm:py-2 rounded-full font-sans font-extrabold text-xs sm:text-[14.5px] text-white bg-[#FF5A4F] border-2 border-[#1A1917] shadow-[2.5px_2.5px_0px_#1A1917] sm:shadow-[3px_3px_0px_#1A1917] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_#1A1917] active:translate-x-0 active:translate-y-0 active:shadow-[1px_1px_0px_#1A1917] transition-all cursor-pointer min-h-[34px] sm:min-h-[40px]"
             >
-              Resume <span className="text-xs sm:text-sm">→</span>
+              <span>Resume</span>
+              <span className="font-bold">→</span>
             </button>
 
-            {/* Mobile Menu Hamburger */}
+            {/* Mobile Menu Hamburger Button */}
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="lg:hidden p-1.5 text-[#241f1a] border-2 border-[#241f1a] rounded-lg bg-[#fffaf0] shadow-[2px_2px_0_#241f1a]"
+              className="lg:hidden p-1.5 sm:p-2 text-[#1A1917] border-2 border-[#1A1917] rounded-xl bg-[#fffaf0] shadow-[2px_2px_0px_#1A1917] sm:shadow-[2.5px_2.5px_0px_#1A1917] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all min-h-[34px] min-w-[34px] flex items-center justify-center"
               aria-label="Toggle Navigation Menu"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,31 +136,57 @@ export default function AWNavPill({ onOpenResume }) {
         </div>
       </div>
 
-      {/* Hand-drawn Wavy Bottom Border */}
-      <div className="wavy-line" aria-hidden="true" />
+      {/* Full-width hand-drawn organic wavy ink SVG line along the bottom with soft paper elevation shadow */}
+      <div 
+        className="w-full overflow-hidden leading-none pointer-events-none" 
+        style={{
+          filter: 'drop-shadow(0px 4px 6px rgba(26, 25, 23, 0.08))'
+        }}
+        aria-hidden="true"
+      >
+        <svg 
+          viewBox="0 0 1440 14" 
+          preserveAspectRatio="none" 
+          className="w-full h-3.5 block"
+        >
+          {/* Paper extension body connecting seamlessly to wave edge */}
+          <path 
+            d="M0,0 L0,5 Q60,11 120,5 T240,5 T360,5 T480,5 T600,5 T720,5 T840,5 T960,5 T1080,5 T1200,5 T1320,5 T1440,5 L1440,0 Z" 
+            fill="rgba(250, 246, 239, 0.90)" 
+          />
+          {/* Hand-drawn ink stroke line */}
+          <path 
+            d="M0,5 Q60,11 120,5 T240,5 T360,5 T480,5 T600,5 T720,5 T840,5 T960,5 T1080,5 T1200,5 T1320,5 T1440,5" 
+            fill="none" 
+            stroke="#1A1917" 
+            strokeWidth="1.75" 
+            strokeLinecap="round"
+          />
+        </svg>
+      </div>
 
       {/* Mobile Drawer */}
       {isMobileOpen && (
-        <div className="lg:hidden bg-[#fffaf0] border-b-2 border-[#241f1a] px-6 py-6 space-y-4 shadow-[0_8px_0_rgba(36,31,26,0.15)]">
-          <div className="grid grid-cols-2 gap-2.5 font-sans font-bold text-sm">
+        <div className="lg:hidden bg-[#FAF6EF] border-b-2 border-[#1A1917] px-4 py-5 space-y-4 shadow-[0_8px_0_rgba(26,25,23,0.15)] animate-in fade-in slide-in-from-top-4 duration-200">
+          <div className="grid grid-cols-2 gap-2 font-sans font-bold text-sm">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsMobileOpen(false)}
-                className="p-2.5 rounded-lg border-2 border-[#241f1a] bg-[#fbf3e2] hover:bg-[#ffc23c] text-[#241f1a] shadow-[2px_2px_0_#241f1a] transition-all text-center"
+                className="p-2.5 rounded-xl border-2 border-[#1A1917] bg-[#fffaf0] hover:bg-[#ffc23c] text-[#1A1917] shadow-[2px_2px_0px_#1A1917] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all text-center min-h-[44px] flex items-center justify-center text-xs sm:text-sm"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          <div className="flex items-center justify-center gap-4 pt-3 border-t border-[#241f1a]/15">
+          <div className="flex items-center justify-center gap-3 pt-3 border-t border-[#1A1917]/15">
             <a
               href="https://github.com/Sachin-dev001"
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-lg border border-[#241f1a] bg-white font-mono text-xs font-bold flex items-center gap-1.5 shadow-[2px_2px_0_#241f1a]"
+              className="p-2 px-3.5 rounded-xl border-2 border-[#1A1917] bg-white font-mono text-xs font-bold flex items-center gap-1.5 shadow-[2px_2px_0px_#1A1917] min-h-[40px]"
             >
               GitHub ↗
             </a>
@@ -134,7 +194,7 @@ export default function AWNavPill({ onOpenResume }) {
               href="https://linkedin.com/in/sachin-sharma-659ab53b6"
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-lg border border-[#241f1a] bg-white font-mono text-xs font-bold flex items-center gap-1.5 shadow-[2px_2px_0_#241f1a]"
+              className="p-2 px-3.5 rounded-xl border-2 border-[#1A1917] bg-white font-mono text-xs font-bold flex items-center gap-1.5 shadow-[2px_2px_0px_#1A1917] min-h-[40px]"
             >
               LinkedIn ↗
             </a>

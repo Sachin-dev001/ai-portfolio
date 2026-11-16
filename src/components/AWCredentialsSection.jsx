@@ -24,7 +24,7 @@ export default function AWCredentialsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           
           {/* Card 1: Degree */}
-          <div className="relative bg-white border-[2.5px] border-[#241f1a] rounded-2xl p-7 sm:p-8 shadow-[6px_6px_0_#241f1a] transform -rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
+          <div className="relative bg-white border-[2.5px] border-[#241f1a] rounded-2xl p-6 sm:p-8 shadow-[5px_5px_0_#241f1a] sm:shadow-[6px_6px_0_#241f1a] transform rotate-0 sm:-rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
             <PushPin color="coral" />
 
             <div className="space-y-4">
@@ -64,10 +64,10 @@ export default function AWCredentialsSection() {
           </div>
 
           {/* Card 2: Skill India NSDC Certificate with Starburst */}
-          <div className="relative bg-[#fff6e0] border-[2.5px] border-[#241f1a] rounded-2xl p-7 sm:p-8 shadow-[6px_6px_0_#241f1a] transform rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
+          <div className="relative bg-[#fff6e0] border-[2.5px] border-[#241f1a] rounded-2xl p-6 sm:p-8 shadow-[5px_5px_0_#241f1a] sm:shadow-[6px_6px_0_#241f1a] transform rotate-0 sm:rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
             {/* Starburst badge pinned at top right */}
-            <div className="absolute -top-7 -right-6 z-20">
-              <StarburstBadge text="GOVT ACCREDITED" color="#ffc23c" size={92} />
+            <div className="absolute -top-6 -right-2 sm:-top-7 sm:-right-6 z-20">
+              <StarburstBadge text="GOVT ACCREDITED" color="#ffc23c" size={88} />
             </div>
 
             <div className="space-y-4">
@@ -107,7 +107,7 @@ export default function AWCredentialsSection() {
           </div>
 
           {/* Card 3: AU Foundation Experience */}
-          <div className="relative bg-[#eafaf4] border-[2.5px] border-[#241f1a] rounded-2xl p-7 sm:p-8 shadow-[6px_6px_0_#241f1a] transform -rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
+          <div className="relative bg-[#eafaf4] border-[2.5px] border-[#241f1a] rounded-2xl p-6 sm:p-8 shadow-[5px_5px_0_#241f1a] sm:shadow-[6px_6px_0_#241f1a] transform rotate-0 sm:-rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
             <PushPin color="teal" />
 
             <div className="space-y-4">

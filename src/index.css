@@ -6,7 +6,7 @@
     background-color: var(--paper);
     color: var(--ink);
     font-family: var(--sans);
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100vw;
     width: 100%;
     -webkit-tap-highlight-color: transparent;
@@ -59,4 +59,36 @@
 }
 .witem.active .prim {
   box-shadow: 10px 12px 0 var(--ink);
+}
+
+/* Quorvel Orbiting Paper Plane Keyframes */
+@keyframes orbitmove {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+.orbit-plane-fly {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  offset-path: circle(45% at 50% 50%);
+  offset-rotate: auto;
+  animation: orbitmove 16s linear infinite;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Globe grab cursors */
+.globe-grab {
+  cursor: grab;
+  touch-action: pan-y;
+}
+.globe-grab:active {
+  cursor: grabbing;
 }
