@@ -1,185 +1,162 @@
 import React from 'react';
-import { ExternalLink, ArrowUpRight } from 'lucide-react';
-import { GithubIcon } from './Icons';
+import MarkerHighlight from './stationery/MarkerHighlight';
+import PushPin from './stationery/PushPin';
 
 export default function AWWorkSection() {
-  const projects = [
-    {
-      id: 'autoapply',
-      badge: 'AUTONOMOUS MULTI-AGENT',
-      status: 'PRODUCTION DEPLOYED',
-      title: 'AutoApply: Stealth Web Application Agent',
-      description:
-        'Architected an autonomous multi-platform application agent for Wellfound and Naukri utilizing Playwright stealth with human-emulation typing, cutting application time by 85%. Features a Human-In-The-Loop Telegram bot and Recruiter Memory Vault with zero bot detection flags.',
-      metrics: [
-        { label: 'Time Reduction', value: '85%' },
-        { label: 'Daily Submissions', value: '50+/day' },
-        { label: 'Bot Detection Flags', value: 'Zero' },
-      ],
-      tech: ['Python', 'Playwright Stealth', 'Google Gemini Flash', 'Supabase Auth & RLS', 'Telegram Bot API'],
-      github: 'https://github.com/Sachin-dev001/ai-job-agent',
-      live: null,
-      glowGradient: 'radial-gradient(circle at 85% 25%, rgba(43, 214, 123, 0.15) 0%, rgba(16, 185, 129, 0.04) 40%, transparent 70%)',
-    },
-    {
-      id: 'videosage',
-      badge: 'PRODUCTION RAG & STREAMING',
-      status: 'LIVE APP AVAILABLE',
-      title: 'VideoSage AI: Timestamp-Aware Video RAG',
-      description:
-        'End-to-end RAG system indexing multi-hour YouTube video transcripts using timestamp-aware chunking and semantic vector search in Qdrant across 5,000+ vector chunks. Combines dense embeddings with BAAI cross-encoder reranking to boost context precision by 28% with sub-800ms streaming latency.',
-      metrics: [
-        { label: 'Context Precision Lift', value: '+28%' },
-        { label: 'Streaming TTFT Latency', value: '<800ms' },
-        { label: 'Indexed Vector Chunks', value: '5,000+' },
-      ],
-      tech: ['Python', 'Gemini 2.5 Flash', 'Qdrant Vector DB', 'BAAI Reranker', 'Streamlit Cloud'],
-      github: 'https://github.com/Sachin-dev001/video-sage-ai',
-      live: 'https://video-sage-ai.streamlit.app',
-      glowGradient: 'radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.15) 0%, rgba(59, 130, 246, 0.04) 40%, transparent 70%)',
-    },
-  ];
-
   return (
-    <section id="work" style={{ padding: '120px 0 80px' }}>
-      <div className="wrap">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <span className="chip glass" data-liquid="chip">
-              <i
-                style={{
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  backgroundColor: '#2bd67b',
-                  boxShadow: '0 0 10px #2bd67b',
-                  marginRight: '8px',
-                  display: 'inline-block',
-                }}
-              />
-              Recent Work
-            </span>
-
-            <h2 className="display" style={{ marginTop: '24px' }}>
-              <span className="line">
-                <span className="line-in">From concept to live.</span>
-              </span>
-              <span className="line">
-                <span className="line-in chrome">Systems that ship.</span>
-              </span>
-            </h2>
-          </div>
-
-          <div className="font-mono text-xs text-zinc-400">
-            SHOWING 2 FLAGSHIP AI SYSTEMS
-          </div>
+    <section id="work" className="relative py-16 sm:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="space-y-3 mb-14 text-center sm:text-left">
+          <span className="eyebrow-marker text-2xl sm:text-3xl text-[#3a7bff]">
+            recent work · showing 2 flagship ai systems ✎
+          </span>
+          <h2 className="font-display font-black text-3xl sm:text-5xl text-[#241f1a] tracking-tight">
+            From concept to live.{' '}
+            <MarkerHighlight color="yellow">
+              Systems that ship.
+            </MarkerHighlight>
+          </h2>
         </div>
 
-        {/* Work Cards */}
-        <div className="space-y-12">
-          {projects.map((proj) => (
-            <div
-              key={proj.id}
-              className="glass"
-              style={{
-                borderRadius: '32px',
-                padding: 'clamp(32px, 5vw, 56px)',
-                position: 'relative',
-                overflow: 'hidden',
-              }}
-            >
-              {/* Background ambient lighting */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: proj.glowGradient,
-                  pointerEvents: 'none',
-                }}
-              />
+        {/* 2 Flagship Systems Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
+          
+          {/* Project 1: AutoApply */}
+          <article className="relative bg-[#fff6e0] border-[2.5px] border-[#241f1a] rounded-2xl p-6 sm:p-8 shadow-[6px_6px_0_#241f1a] transform -rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
+            <PushPin color="coral" />
 
-              <div style={{ position: 'relative', zIndex: 4 }}>
-                {/* Header Row */}
-                <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-                  <div className="flex items-center gap-3">
-                    <span className="chip glass" style={{ fontSize: '11px', letterSpacing: '0.15em' }}>
-                      {proj.badge}
-                    </span>
-                    <span className="text-emerald-400 text-xs font-mono flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                      {proj.status}
-                    </span>
-                  </div>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-[#241f1a]/20 pb-3 font-mono text-xs">
+                <span className="font-bold text-[#ff5a5f] uppercase tracking-wider">
+                  AUTONOMOUS MULTI-AGENT
+                </span>
+                <span className="px-2 py-0.5 rounded bg-[#ffffff] border border-[#241f1a] font-bold text-[#36c25f]">
+                  ● PRODUCTION DEPLOYED
+                </span>
+              </div>
 
-                  <div className="flex items-center gap-3">
-                    {proj.live && (
-                      <a
-                        href={proj.live}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="btn btn-solid"
-                        style={{ padding: '8px 20px', fontSize: '12px' }}
-                      >
-                        <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
-                        <span>Launch App</span>
-                      </a>
-                    )}
-                    <a
-                      href={proj.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn btn-glass glass"
-                      style={{ padding: '10px' }}
-                      title="GitHub"
-                    >
-                      <GithubIcon className="w-4 h-4" />
-                    </a>
-                  </div>
+              <h3 className="font-display font-black text-2xl sm:text-3xl text-[#241f1a]">
+                AutoApply: Stealth Web Application Agent
+              </h3>
+
+              <p className="font-sans text-sm sm:text-base text-[#544b3f] leading-relaxed">
+                Architected an autonomous multi-platform application agent for Wellfound and Naukri utilizing Playwright stealth with human-emulation typing, cutting application time by 85%. Features a Human-In-The-Loop Telegram bot and Recruiter Memory Vault with zero bot-detection flags.
+              </p>
+
+              {/* 3 KPI Boxes */}
+              <div className="grid grid-cols-3 gap-2.5 pt-2">
+                <div className="bg-white border-2 border-[#241f1a] rounded-lg p-2.5 text-center shadow-[2px_2px_0_#241f1a]">
+                  <div className="font-display font-black text-lg sm:text-xl text-[#ff5a5f]">85%</div>
+                  <div className="font-mono text-[10px] text-[#544b3f] font-bold uppercase">Time Reduction</div>
                 </div>
-
-                {/* Title & Description */}
-                <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-                  {proj.title}
-                </h3>
-                <p className="text-sm sm:text-base text-zinc-300 font-sans leading-relaxed max-w-3xl mb-8">
-                  {proj.description}
-                </p>
-
-                {/* Metrics Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                  {proj.metrics.map((m, idx) => (
-                    <div
-                      key={idx}
-                      className="glass p-4 rounded-2xl border border-white/10"
-                      style={{ background: 'rgba(255, 255, 255, 0.03)' }}
-                    >
-                      <div className="text-2xl sm:text-3xl font-black font-mono text-white mb-1">
-                        {m.value}
-                      </div>
-                      <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider">
-                        {m.label}
-                      </div>
-                    </div>
-                  ))}
+                <div className="bg-white border-2 border-[#241f1a] rounded-lg p-2.5 text-center shadow-[2px_2px_0_#241f1a]">
+                  <div className="font-display font-black text-lg sm:text-xl text-[#241f1a]">50+/day</div>
+                  <div className="font-mono text-[10px] text-[#544b3f] font-bold uppercase">Submissions</div>
                 </div>
-
-                {/* Tech Pills */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
-                  {proj.tech.map((t, idx) => (
-                    <span
-                      key={idx}
-                      className="chip glass"
-                      style={{ padding: '6px 14px', fontSize: '11px' }}
-                    >
-                      {t}
-                    </span>
-                  ))}
+                <div className="bg-white border-2 border-[#241f1a] rounded-lg p-2.5 text-center shadow-[2px_2px_0_#241f1a]">
+                  <div className="font-display font-black text-lg sm:text-xl text-[#36c25f]">0 Flags</div>
+                  <div className="font-mono text-[10px] text-[#544b3f] font-bold uppercase">Bot Evasion</div>
                 </div>
               </div>
+
+              {/* Tech Stack Pills */}
+              <div className="pt-2 flex flex-wrap gap-1.5 font-mono text-[11px] font-bold text-[#241f1a]">
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">PYTHON</span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">PLAYWRIGHT STEALTH</span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">GEMINI FLASH</span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">SUPABASE RLS</span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">TELEGRAM HITL</span>
+              </div>
             </div>
-          ))}
+
+            <div className="pt-6 border-t border-[#241f1a]/20 mt-6 flex items-center justify-between">
+              <a
+                href="https://github.com/Sachin-dev001/ai-job-agent"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-paper btn-coral text-sm py-2 px-5 font-bold shadow-[3px_3px_0_#241f1a]"
+              >
+                Inspect Code on GitHub ↗
+              </a>
+              <span className="font-mono text-xs text-[#544b3f]">Open Source (MIT)</span>
+            </div>
+          </article>
+
+          {/* Project 2: VideoSage AI */}
+          <article className="relative bg-[#eafaf4] border-[2.5px] border-[#241f1a] rounded-2xl p-6 sm:p-8 shadow-[6px_6px_0_#241f1a] transform rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
+            <PushPin color="cobalt" />
+
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-[#241f1a]/20 pb-3 font-mono text-xs">
+                <span className="font-bold text-[#1fbfa4] uppercase tracking-wider">
+                  PRODUCTION RAG &amp; STREAMING
+                </span>
+                <span className="px-2 py-0.5 rounded bg-[#ffffff] border border-[#241f1a] font-bold text-[#36c25f]">
+                  ● LIVE DEPLOYMENT
+                </span>
+              </div>
+
+              <h3 className="font-display font-black text-2xl sm:text-3xl text-[#241f1a]">
+                VideoSage AI: Timestamp-Aware Video RAG
+              </h3>
+
+              <p className="font-sans text-sm sm:text-base text-[#544b3f] leading-relaxed">
+                End-to-end RAG system indexing multi-hour YouTube video transcripts using timestamp-aware chunking and semantic vector search in Qdrant across 5,000+ vector chunks. Combines dense embeddings with BAAI cross-encoder reranking to boost context precision by 28% with sub-800ms streaming TTFT.
+              </p>
+
+              {/* 3 KPI Boxes */}
+              <div className="grid grid-cols-3 gap-2.5 pt-2">
+                <div className="bg-white border-2 border-[#241f1a] rounded-lg p-2.5 text-center shadow-[2px_2px_0_#241f1a]">
+                  <div className="font-display font-black text-lg sm:text-xl text-[#3a7bff]">+28.3%</div>
+                  <div className="font-mono text-[10px] text-[#544b3f] font-bold uppercase">Precision Lift</div>
+                </div>
+                <div className="bg-white border-2 border-[#241f1a] rounded-lg p-2.5 text-center shadow-[2px_2px_0_#241f1a]">
+                  <div className="font-display font-black text-lg sm:text-xl text-[#1fbfa4]">&lt;800ms</div>
+                  <div className="font-mono text-[10px] text-[#544b3f] font-bold uppercase">Streaming TTFT</div>
+                </div>
+                <div className="bg-white border-2 border-[#241f1a] rounded-lg p-2.5 text-center shadow-[2px_2px_0_#241f1a]">
+                  <div className="font-display font-black text-lg sm:text-xl text-[#241f1a]">5,000+</div>
+                  <div className="font-mono text-[10px] text-[#544b3f] font-bold uppercase">Vectors Indexed</div>
+                </div>
+              </div>
+
+              {/* Tech Stack Pills */}
+              <div className="pt-2 flex flex-wrap gap-1.5 font-mono text-[11px] font-bold text-[#241f1a]">
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">PYTHON</span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">GEMINI 2.5 FLASH</span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">QDRANT HNSW</span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">BAAI CROSS-ENCODER</span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">STREAMLIT CLOUD</span>
+              </div>
+            </div>
+
+            <div className="pt-6 border-t border-[#241f1a]/20 mt-6 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://video-sage-ai.streamlit.app"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-paper btn-ink text-sm py-2 px-5 font-bold shadow-[3px_3px_0_#241f1a]"
+                >
+                  Launch Live App ↗
+                </a>
+                <a
+                  href="https://github.com/Sachin-dev001/video-sage-ai"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs font-mono font-bold text-[#241f1a] underline hover:text-[#3a7bff]"
+                >
+                  GitHub Code
+                </a>
+              </div>
+              <span className="font-mono text-xs text-[#544b3f]">Streamlit Cloud Live</span>
+            </div>
+          </article>
+
         </div>
+
       </div>
     </section>
   );

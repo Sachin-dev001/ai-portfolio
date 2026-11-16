@@ -1,67 +1,72 @@
 import React from 'react';
-import { ArrowRight, Code2, Cpu, ShieldCheck } from 'lucide-react';
+import MaskingTape from './stationery/MaskingTape';
+
+const STAT_CARDS = [
+  { value: '85%', label: 'Manual Time Reduction', tape: 'yellow', rotate: '-2deg' },
+  { value: '+28%', label: 'Context Precision Lift', tape: 'mint', rotate: '2deg' },
+  { value: '0 Flags', label: 'Stealth Bot Evasion', tape: 'blue', rotate: '-1.5deg' },
+  { value: '<800ms', label: 'Streaming TTFT Latency', tape: 'pink', rotate: '2deg' },
+];
 
 export default function AWIntroSection() {
   return (
-    <section className="intro wrap" id="intro" style={{ padding: '80px var(--gutter)' }}>
-      <div className="intro-grid">
-        {/* Big Impact Statement */}
-        <h2 className="statement text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-white">
-          <span className="g-block block mb-1">
-            <span className="w text-white">Production-grade</span>{' '}
-            <span className="w text-white">engineering,</span>
-          </span>
-          <span className="g-block block mb-1">
-            <span className="w text-zinc-400">AI-accelerated</span>{' '}
-            <span className="w text-zinc-400">where</span>{' '}
-            <span className="w text-zinc-400">it</span>{' '}
-            <span className="w text-zinc-400">counts,</span>
-          </span>
-          <span className="g-block block">
-            <span className="w chrome">bespoke</span>{' '}
-            <span className="w chrome">where</span>{' '}
-            <span className="w chrome">it</span>{' '}
-            <span className="w chrome">matters.</span>
-          </span>
-        </h2>
+    <section className="relative py-20 sm:py-28 ruled-notebook border-y-2 border-[#241f1a]/15 bg-[#fbf3e2]/60">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Bold Serif Philosophical Statement */}
+          <div className="lg:col-span-6 space-y-6">
+            <span className="eyebrow-marker text-2xl sm:text-3xl text-[#3a7bff]">
+              proven in production ✎
+            </span>
 
-        {/* Side Details */}
-        <div className="intro-side fade-up flex flex-col justify-between space-y-6">
-          <p className="lede text-base sm:text-lg text-zinc-300 font-sans leading-relaxed">
-            Autonomous web agents, timestamp-aware video RAG pipelines, and the quantitative evaluation suites behind them. Deterministic state machines, stealth anti-bot emulation, and semantic rerankers built round real production constraints, so the system scales without hallucinating.
-          </p>
+            <h2 className="font-display font-black text-3xl sm:text-5xl text-[#241f1a] leading-[1.15] tracking-tight">
+              &ldquo;Production-grade engineering, AI-accelerated where it counts, bespoke where it matters.&rdquo;
+            </h2>
 
-          <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10 font-mono text-xs text-zinc-400">
-            <div>
-              <span className="text-white text-lg font-bold block">85%</span>
-              <span>Manual Time Reduction</span>
-            </div>
-            <div>
-              <span className="text-white text-lg font-bold block">+28%</span>
-              <span>Context Precision Lift</span>
-            </div>
-            <div>
-              <span className="text-white text-lg font-bold block">0 Flags</span>
-              <span>Stealth Bot Evasion</span>
-            </div>
-            <div>
-              <span className="text-white text-lg font-bold block">&lt;800ms</span>
-              <span>Streaming TTFT</span>
+            <p className="font-sans text-base sm:text-lg text-[#544b3f] leading-relaxed">
+              Autonomous web agents, timestamp-aware video RAG pipelines, and the quantitative evaluation suites behind them. Deterministic state machines, stealth anti-bot emulation, and semantic rerankers built around real production constraints, so the system scales without hallucinating.
+            </p>
+
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-sm font-sans font-bold text-[#3a7bff]">
+              <a href="#architecture" className="hover:underline flex items-center gap-1">
+                Explore Console <span>↓</span>
+              </a>
+              <span className="text-[#241f1a]/30">•</span>
+              <a href="#work" className="hover:underline flex items-center gap-1">
+                Flagship Work <span>↓</span>
+              </a>
+              <span className="text-[#241f1a]/30">•</span>
+              <a href="#evals" className="hover:underline flex items-center gap-1">
+                Evaluation Lab <span>↓</span>
+              </a>
             </div>
           </div>
 
-          <div className="text-links flex flex-wrap gap-5 text-sm font-medium">
-            <a href="#built" className="text-white hover:text-emerald-400 flex items-center gap-1.5 transition">
-              Explore Console <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-            <a href="#work" className="text-zinc-400 hover:text-white flex items-center gap-1.5 transition">
-              Flagship Work <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-            <a href="#evals-lab" className="text-zinc-400 hover:text-white flex items-center gap-1.5 transition">
-              Evaluation Lab <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+          {/* Right Column: 4 Taped Sticky Metric Cards Grid */}
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 pt-4">
+            {STAT_CARDS.map((stat, i) => (
+              <div
+                key={i}
+                className="relative bg-[#fffaf0] border-[2.5px] border-[#241f1a] rounded-xl p-6 shadow-[5px_5px_0_#241f1a] hover:rotate-0 hover:scale-105 transition-all duration-200"
+                style={{ transform: `rotate(${stat.rotate})` }}
+              >
+                <MaskingTape color={stat.tape} rotate={i % 2 === 0 ? '-4deg' : '3deg'} />
+                
+                <div className="font-display font-black text-4xl sm:text-5xl text-[#241f1a] tracking-tight mb-2">
+                  {stat.value}
+                </div>
+                
+                <div className="font-mono text-xs sm:text-sm font-bold text-[#544b3f] uppercase tracking-wide">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
+
         </div>
+
       </div>
     </section>
   );

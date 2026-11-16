@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import BackgroundScene3D from './components/BackgroundScene3D';
-import CursorGlow from './components/CursorGlow';
 import AWNavPill from './components/AWNavPill';
 import AWHeroCinematic from './components/AWHeroCinematic';
 import AWBuiltSection from './components/AWBuiltSection';
@@ -22,63 +20,56 @@ export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-black text-[#f5f5f7] selection:bg-white selection:text-black relative overflow-x-hidden font-sans">
-      {/* 1. Subtle Ambient 3D Particle Constellation in Background */}
-      <BackgroundScene3D />
-
-      {/* 2. Interactive Ambient Cursor Spotlight */}
-      <CursorGlow />
-
-      {/* 3. Floating Glass Pill Navigation Header */}
+    <div className="min-h-screen bg-[#fbf3e2] text-[#241f1a] selection:bg-[#ffc23c] selection:text-[#241f1a] relative overflow-x-hidden font-sans">
+      
+      {/* 1. Sticky Wavy Neo-Brutalist Navigation Header */}
       <AWNavPill onOpenResume={() => setIsResumeOpen(true)} />
 
       <main className="relative z-10">
-        {/* 4. Hero Section: Cinematic Looping Video + Prominent SACHIN SHARMA + AI Systems Engineer */}
+        {/* 2. Hero Section: 2-Column Warm Paper & Overlapping Taped Index Cards */}
         <AWHeroCinematic onOpenResume={() => setIsResumeOpen(true)} />
 
-        {/* 5. 3D Perspective Device Stage: "Built like this." with Interactive Console */}
+        {/* 3. Flagship Architecture Console: "Built like this." with Interactive Telemetry */}
         <AWBuiltSection />
 
-        {/* 6. Marquee: Tech Stack & Production Benchmarks Continuous Ticker */}
+        {/* 4. Tilted Dark Charcoal Marquee Strip */}
         <AWTrustedMarquee />
 
-        {/* 7. Intro Statement: "Production-grade engineering, AI-accelerated where it counts, bespoke where it matters." */}
+        {/* 5. Ruled-Notebook Statement & 4 Taped Sticky Metric Cards */}
         <AWIntroSection />
 
-        {/* 8. Recent Work: "From concept to live. Systems that ship." (VideoSage AI & AutoApply) */}
+        {/* 6. Recent Work: "From concept to live. Systems that ship." */}
         <AWWorkSection />
 
-        {/* 9. Core Capabilities / Services: "Stop building brittle AI demos for problems that demand production engineering." */}
+        {/* 7. Core Capabilities: 2×2 Tilted Paper Cards Grid */}
         <AWServicesSection />
 
-        {/* 10. Engineering Methodology: "From problem to production, in five clear steps." */}
+        {/* 8. Engineering Methodology: Interactive 3D Spinning Dial Carousel */}
         <AWProcessSection />
 
-        {/* 11. Why Hire Sachin: Bento Grid */}
+        {/* 9. Why Engineering Teams Hire Sachin: 4 Taped Principles */}
         <AWWhySection />
 
-        {/* 12. Quantitative Evals & RAG Benchmarking Lab */}
+        {/* 10. Quantitative Evals & RAG Benchmarking Lab */}
         <AWEvalsSection />
 
-        {/* 13. Academic Credentials: B.Tech in CSE (Poornima University, 2026) & NSDC AI/DS Govt Cert */}
+        {/* 11. Education & Credentials: B.Tech CSE (2026) & Skill India Govt NSDC */}
         <AWCredentialsSection />
 
-        {/* 14. Technical FAQ: Accordion */}
+        {/* 12. Technical FAQ: Accordion Cards */}
         <AWFAQSection />
 
-        {/* 15. High-Impact Call to Action with Ambient Lens */}
+        {/* 13. High-Impact Call to Action with Paper Plane & Doodles */}
         <AWCTASection onOpenResume={() => setIsResumeOpen(true)} />
       </main>
 
-      {/* 16. Luxury Multi-Column Directory Footer */}
-      <div className="relative z-10">
-        <AWFooterSection onOpenResume={() => setIsResumeOpen(true)} />
-      </div>
+      {/* 14. Deep Charcoal / Dark Ink Footer */}
+      <AWFooterSection onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* 17. Persistent Floating Bottom-Left Status Pill ("● Open to work") */}
+      {/* 15. Persistent Floating Bottom-Left Status Pill ("● Open to work · AI Engineer") */}
       <AWFloatingStatus />
 
-      {/* 18. ATS Resume High-Res Modal Viewer */}
+      {/* 16. ATS Resume High-Res Modal Viewer */}
       <ResumeModalLuxury isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </div>
   );

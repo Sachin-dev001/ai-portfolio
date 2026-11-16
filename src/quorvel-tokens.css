@@ -1,0 +1,309 @@
+:root {
+  /* Quorvel Canvas & Paper Surfaces */
+  --paper: #fbf3e2;
+  --paper2: #f4e9cf;
+  --card: #fffaf0;
+  --card-white: #ffffff;
+  --card-yellow: #fff6e0;
+  --card-mint: #eafaf4;
+  --card-blue: #eef3ff;
+  --card-pink: #fff2f2;
+
+  /* Ink & Typography */
+  --ink: #241f1a;
+  --ink2: #544b3f;
+  --faint: #8c8270;
+  --line: #241f1a;
+  --rule: rgba(36, 31, 26, 0.16);
+
+  /* Stationery Accents */
+  --coral: #ff5a5f;
+  --sun: #ffc23c;
+  --teal: #1fbfa4;
+  --cobalt: #3a7bff;
+  --grape: #8b5cf6;
+  --leaf: #36c25f;
+  --pink: #ff7eb6;
+
+  /* Hard Offset Drop Shadows */
+  --shadow-sm: 3px 3px 0 var(--ink);
+  --shadow: 6px 6px 0 var(--ink);
+  --shadow-card: 4px 4px 0 var(--ink);
+  --shadow-lg: 10px 12px 0 var(--ink);
+
+  /* 4-Role Typography System */
+  --disp: "Fraunces", Georgia, serif;
+  --hand: "Caveat", cursive;
+  --sans: "Nunito", system-ui, sans-serif;
+  --mono: "JetBrains Mono", monospace;
+  --space: "Space Grotesk", sans-serif;
+}
+
+/* Base resets & typography */
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--disp);
+  font-optical-sizing: auto;
+}
+
+.font-hand {
+  font-family: var(--hand);
+}
+
+.font-sans {
+  font-family: var(--sans);
+}
+
+.font-mono {
+  font-family: var(--mono);
+}
+
+/* Wavy divider mask */
+.wavy-border-bottom {
+  position: relative;
+}
+.wavy-border-bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 4px;
+  background: var(--ink);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='6'%3E%3Cpath d='M0 3 Q30 0 60 3 T120 3' fill='none' stroke='black' stroke-width='3'/%3E%3C/svg%3E") repeat-x;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='6'%3E%3Cpath d='M0 3 Q30 0 60 3 T120 3' fill='none' stroke='black' stroke-width='3'/%3E%3C/svg%3E") repeat-x;
+  opacity: 0.55;
+  z-index: 20;
+}
+
+/* Neo-brutalist buttons */
+.btn-paper {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.65em 1.25em;
+  border: 2.5px solid var(--ink);
+  border-radius: 14px 20px 16px 22px;
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s, box-shadow 0.12s, background 0.12s;
+  position: relative;
+}
+.btn-paper:hover {
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.btn-paper:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.btn-coral {
+  background: var(--coral);
+  color: #ffffff;
+}
+.btn-coral:hover {
+  background: #ff474d;
+}
+
+.btn-cobalt {
+  background: var(--cobalt);
+  color: #ffffff;
+}
+.btn-cobalt:hover {
+  background: #2a6ae6;
+}
+
+.btn-ink {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-ink:hover {
+  background: #362f27;
+}
+
+/* Masking Tape */
+.masking-tape {
+  position: absolute;
+  width: 86px;
+  height: 26px;
+  border: 1px dashed rgba(36, 31, 26, 0.35);
+  left: 50%;
+  top: -13px;
+  transform: translateX(-50%) rotate(-3deg);
+  z-index: 10;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.tape-yellow {
+  background: rgba(255, 194, 60, 0.6);
+}
+.tape-blue {
+  background: rgba(58, 123, 255, 0.45);
+}
+.tape-mint {
+  background: rgba(31, 191, 164, 0.45);
+}
+.tape-pink {
+  background: rgba(255, 126, 182, 0.5);
+}
+
+/* Pushpin */
+.push-pin {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2.5px solid var(--ink);
+  box-shadow: var(--shadow-sm);
+  z-index: 10;
+}
+.pin-coral {
+  background: var(--coral);
+}
+.pin-cobalt {
+  background: var(--cobalt);
+}
+.pin-teal {
+  background: var(--teal);
+}
+
+/* Eyebrows */
+.eyebrow-marker {
+  font-family: var(--hand);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--cobalt);
+  transform: rotate(-2.5deg);
+  display: inline-block;
+  letter-spacing: 0.5px;
+}
+
+/* Tilted Marquee Strip */
+.quorvel-strip {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 0;
+  transform: rotate(-1.2deg) scale(1.03);
+  margin: 40px 0;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.strip-track-infinite {
+  display: flex;
+  gap: 36px;
+  white-space: nowrap;
+  font-family: var(--disp);
+  font-weight: 800;
+  font-size: 24px;
+  will-change: transform;
+  animation: marqueeScroll 28s linear infinite;
+}
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Faint ruled notebook background lines */
+.ruled-notebook {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    var(--rule) 28px
+  );
+}
+
+/* Spiral notebook hole punched sheet */
+.spiral-sheet {
+  position: relative;
+  background: #ffffff;
+  border: 2.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 24px 24px 24px 44px;
+  box-shadow: var(--shadow);
+}
+.spiral-sheet::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 36px;
+  width: 2px;
+  background: #ff5a5f;
+  opacity: 0.45;
+}
+.spiral-holes {
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 12px;
+  width: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.spiral-hole {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+}
+
+/* Highlighter Brush stroke */
+.marker-highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+.marker-highlight::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 8%;
+  height: 42%;
+  z-index: -1;
+  transform: rotate(-1deg);
+  border-radius: 4px;
+}
+.highlight-yellow::before {
+  background: rgba(255, 194, 60, 0.65);
+}
+.highlight-teal::before {
+  background: rgba(31, 191, 164, 0.45);
+}
+.highlight-pink::before {
+  background: rgba(255, 126, 182, 0.55);
+}
+
+/* Stamped checkmark */
+.approved-stamp {
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--leaf);
+  border: 2px solid var(--leaf);
+  border-radius: 8px;
+  padding: 2px 8px;
+  transform: rotate(-12deg);
+  display: inline-block;
+}

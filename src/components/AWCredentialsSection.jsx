@@ -1,104 +1,153 @@
 import React from 'react';
-import { GraduationCap, Award, BookOpen, Layers } from 'lucide-react';
+import StarburstBadge from './stationery/StarburstBadge';
+import PushPin from './stationery/PushPin';
 
 export default function AWCredentialsSection() {
-  const credentials = [
-    {
-      title: 'Bachelor of Technology (B.Tech) in Computer Science & Engineering',
-      org: 'Poornima University',
-      badge: 'DEGREE • 2022 – 2026',
-      period: 'Graduating 2026',
-      desc: 'Rigorous engineering training across Data Structures & Algorithms, Artificial Intelligence, Database Management Systems (DBMS), Operating Systems, and Software Engineering.',
-      tags: ['Data Structures & Algorithms', 'Artificial Intelligence', 'Database Internals', 'Operating Systems', 'Python & C++'],
-    },
-    {
-      title: 'Certificate in Artificial Intelligence & Data Science',
-      org: 'Skill India (Government of India / NSDC)',
-      badge: 'GOVT OF INDIA ACCREDITED',
-      period: 'Certified 2026',
-      desc: 'National Skill Development Corporation (NSDC) government certification in AI architectures, Machine Learning, Deep Learning models, statistical modeling, and data science pipelines.',
-      tags: ['Skill India', 'NSDC Govt of India', 'Machine Learning', 'Deep Learning', 'Data Science'],
-    },
-    {
-      title: 'Production GenAI & Agentic Systems Architecture',
-      org: 'Independent Applied Engineering',
-      badge: 'PRODUCTION SYSTEMS',
-      period: '2024 – Present',
-      desc: 'Architecting high-throughput video RAG pipelines with Qdrant and BAAI cross-encoders (+28% precision lift), autonomous Playwright stealth agents with zero bot flags, and automated LLM eval suites.',
-      tags: ['Qdrant HNSW', 'BAAI Cross-Encoder', 'Playwright Stealth', 'FastAPI SSE', 'Ragas & DeepEval'],
-    },
-  ];
-
   return (
-    <section className="credentials wrap" id="credentials" style={{ padding: '80px var(--gutter)' }}>
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-        <div>
-          <span className="chip glass inline-block mb-4" data-liquid="chip">
-            <i
-              style={{
-                width: '6px',
-                height: '6px',
-                borderRadius: '50%',
-                backgroundColor: '#2bd67b',
-                boxShadow: '0 0 10px #2bd67b',
-                marginRight: '8px',
-                display: 'inline-block',
-              }}
-            />
-            Academic & Technical Background
+    <section id="credentials" className="relative py-20 sm:py-28 bg-[#fbf3e2]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
+          <span className="eyebrow-marker text-2xl sm:text-3xl text-[#36c25f]">
+            academic &amp; technical background ✎
           </span>
-
-          <h2 className="display reveal-lines">
-            <span className="line">
-              <span className="line-in">Education &</span>
-            </span>
-            <span className="line">
-              <span className="line-in chrome">Credentials.</span>
-            </span>
+          <h2 className="font-display font-black text-3xl sm:text-5xl text-[#241f1a] tracking-tight">
+            Education &amp; Credentials.
           </h2>
+          <p className="font-mono text-xs sm:text-sm font-bold text-[#544b3f] uppercase tracking-wider">
+            B.TECH IN COMPUTER SCIENCE · 2022–2026 · SKILL INDIA GOVT CERTIFIED
+          </p>
         </div>
 
-        <span className="font-mono text-xs text-zinc-400">
-          B.TECH IN COMPUTER SCIENCE &bull; 2022–2026
-        </span>
-      </div>
+        {/* 3 Pricing-Style Credential Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+          
+          {/* Card 1: Degree */}
+          <div className="relative bg-white border-[2.5px] border-[#241f1a] rounded-2xl p-7 sm:p-8 shadow-[6px_6px_0_#241f1a] transform -rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
+            <PushPin color="coral" />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {credentials.map((cred, idx) => (
-          <div
-            key={idx}
-            className="glass p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between hover:border-white/30 transition-all"
-          >
-            <div>
-              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                <span className="font-mono text-[10.5px] text-emerald-400 uppercase tracking-wider bg-emerald-950/40 border border-emerald-500/20 px-3 py-1 rounded-full">
-                  {cred.badge}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-[#241f1a]/20 pb-3 font-mono text-xs">
+                <span className="font-bold text-[#3a7bff] uppercase tracking-wider">
+                  DEGREE · 2022 – 2026
                 </span>
-                <span className="font-mono text-xs text-zinc-400">{cred.period}</span>
+                <span className="px-2 py-0.5 rounded bg-[#fbf3e2] border border-[#241f1a] font-bold text-[#241f1a]">
+                  Graduating 2026
+                </span>
               </div>
 
-              <span className="font-mono text-xs text-zinc-400 block mb-1">{cred.org}</span>
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-3 tracking-tight">
-                {cred.title}
-              </h3>
+              <div>
+                <span className="font-mono text-xs text-[#544b3f] font-bold uppercase block mb-1">
+                  Poornima University, Jaipur
+                </span>
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-[#241f1a]">
+                  B.Tech in Computer Science &amp; Engineering
+                </h3>
+              </div>
 
-              <p className="text-zinc-300 font-sans text-xs sm:text-sm leading-relaxed mb-6">
-                {cred.desc}
+              <p className="font-sans text-xs sm:text-sm text-[#544b3f] leading-relaxed">
+                Rigorous engineering training across Data Structures &amp; Algorithms, Artificial Intelligence, Database Management Systems (DBMS), Operating Systems, and Software Engineering.
               </p>
+
+              <div className="pt-2 flex flex-wrap gap-1.5 font-mono text-[11px] font-bold text-[#241f1a]">
+                <span className="px-2 py-0.5 rounded bg-[#fbf3e2] border border-[#241f1a]">DSA</span>
+                <span className="px-2 py-0.5 rounded bg-[#fbf3e2] border border-[#241f1a]">AI &amp; DBMS</span>
+                <span className="px-2 py-0.5 rounded bg-[#fbf3e2] border border-[#241f1a]">Python &amp; C++</span>
+              </div>
             </div>
 
-            <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/10">
-              {cred.tags.map((t, i) => (
-                <span
-                  key={i}
-                  className="font-mono text-[10.5px] text-zinc-300 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full"
-                >
-                  {t}
-                </span>
-              ))}
+            <div className="pt-6 border-t border-[#241f1a]/20 mt-6 font-mono text-xs text-[#544b3f] flex items-center justify-between">
+              <span>Full-time Campus</span>
+              <span className="text-[#36c25f] font-bold">✓ Verified</span>
             </div>
           </div>
-        ))}
+
+          {/* Card 2: Skill India NSDC Certificate with Starburst */}
+          <div className="relative bg-[#fff6e0] border-[2.5px] border-[#241f1a] rounded-2xl p-7 sm:p-8 shadow-[6px_6px_0_#241f1a] transform rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
+            {/* Starburst badge pinned at top right */}
+            <div className="absolute -top-7 -right-6 z-20">
+              <StarburstBadge text="GOVT ACCREDITED" color="#ffc23c" size={92} />
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-[#241f1a]/20 pb-3 font-mono text-xs">
+                <span className="font-bold text-[#ff5a5f] uppercase tracking-wider">
+                  GOVERNMENT ACCREDITATION
+                </span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a] font-bold text-[#36c25f]">
+                  Certified 2026
+                </span>
+              </div>
+
+              <div>
+                <span className="font-mono text-xs text-[#544b3f] font-bold uppercase block mb-1">
+                  Skill India (Govt. of India / NSDC)
+                </span>
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-[#241f1a]">
+                  Certificate in AI &amp; Data Science
+                </h3>
+              </div>
+
+              <p className="font-sans text-xs sm:text-sm text-[#544b3f] leading-relaxed">
+                National Skill Development Corporation (NSDC) government certification in AI architecture, Machine Learning, Deep Learning models, statistical modeling, and data science pipelines.
+              </p>
+
+              <div className="pt-2 flex flex-wrap gap-1.5 font-mono text-[11px] font-bold text-[#241f1a]">
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">Deep Learning</span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">Data Science</span>
+                <span className="px-2 py-0.5 rounded bg-[#ffc23c]/40 border border-[#241f1a]">Govt NSDC</span>
+              </div>
+            </div>
+
+            <div className="pt-6 border-t border-[#241f1a]/20 mt-6 font-mono text-xs text-[#544b3f] flex items-center justify-between">
+              <span>National Registry</span>
+              <span className="text-[#36c25f] font-bold">✓ Official Credential</span>
+            </div>
+          </div>
+
+          {/* Card 3: AU Foundation Experience */}
+          <div className="relative bg-[#eafaf4] border-[2.5px] border-[#241f1a] rounded-2xl p-7 sm:p-8 shadow-[6px_6px_0_#241f1a] transform -rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
+            <PushPin color="teal" />
+
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-[#241f1a]/20 pb-3 font-mono text-xs">
+                <span className="font-bold text-[#1fbfa4] uppercase tracking-wider">
+                  PRODUCTION EXPERIENCE
+                </span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a] font-bold text-[#241f1a]">
+                  Dec 2025 – Apr 2026
+                </span>
+              </div>
+
+              <div>
+                <span className="font-mono text-xs text-[#544b3f] font-bold uppercase block mb-1">
+                  AU Foundation
+                </span>
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-[#241f1a]">
+                  AI &amp; GenAI Engineering Trainee
+                </h3>
+              </div>
+
+              <p className="font-sans text-xs sm:text-sm text-[#544b3f] leading-relaxed">
+                Architected production-grade RAG retrieval pipelines using LangChain and vector databases (+24% precision lift across 10,000+ benchmark queries), constructed automated LLM evaluation pipelines with Ragas/DeepEval, and integrated safety guardrails.
+              </p>
+
+              <div className="pt-2 flex flex-wrap gap-1.5 font-mono text-[11px] font-bold text-[#241f1a]">
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">LangChain RAG</span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">Ragas &amp; DeepEval</span>
+                <span className="px-2 py-0.5 rounded bg-white border border-[#241f1a]">Safety Guardrails</span>
+              </div>
+            </div>
+
+            <div className="pt-6 border-t border-[#241f1a]/20 mt-6 font-mono text-xs text-[#544b3f] flex items-center justify-between">
+              <span>Jaipur, Rajasthan</span>
+              <span className="text-[#36c25f] font-bold">✓ Industry Trainee</span>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );

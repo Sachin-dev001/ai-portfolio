@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Sliders, CheckCircle2, AlertTriangle, ShieldCheck, Zap, RefreshCw } from 'lucide-react';
+import MarkerHighlight from './stationery/MarkerHighlight';
+import RuledNotebookCard from './stationery/RuledNotebookCard';
 
 const PRESET_QUERIES = [
   {
@@ -53,155 +54,147 @@ const PRESET_QUERIES = [
 export default function AWEvalsSection() {
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [rerankerEnabled, setRerankerEnabled] = useState(true);
-  const [isEvaluating, setIsEvaluating] = useState(false);
 
   const activeQuery = PRESET_QUERIES[selectedIdx];
   const evalData = rerankerEnabled ? activeQuery.rerankerOn : activeQuery.rerankerOff;
 
-  const runEvaluation = () => {
-    setIsEvaluating(true);
-    setTimeout(() => {
-      setIsEvaluating(false);
-    }, 400);
-  };
-
   return (
-    <section className="evals wrap" id="evals-lab" style={{ padding: '80px var(--gutter)' }}>
-      {/* Header */}
-      <div className="mb-10">
-        <span className="chip glass inline-block mb-4" data-liquid="chip">
-          <i
-            style={{
-              width: '6px',
-              height: '6px',
-              borderRadius: '50%',
-              backgroundColor: '#2bd67b',
-              boxShadow: '0 0 10px #2bd67b',
-              marginRight: '8px',
-              display: 'inline-block',
-            }}
-          />
-          Interactive Lab
-        </span>
-
-        <h2 className="display reveal-lines">
-          <span className="line">
-            <span className="line-in">Quantitative Evals &</span>
+    <section id="evals" className="relative py-20 sm:py-28 bg-[#fbf3e2]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
+          <span className="eyebrow-marker text-2xl sm:text-3xl text-[#1fbfa4]">
+            interactive lab ✎
           </span>
-          <span className="line">
-            <span className="line-in chrome">RAG Benchmarking.</span>
-          </span>
-        </h2>
-
-        <p className="text-zinc-400 font-sans text-sm sm:text-base max-w-2xl mt-3">
-          Test real-time retrieval parameters. Toggle the BAAI Cross-Encoder reranker to observe quantitative precision lifts, distractor chunk demotions, and streaming latencies.
-        </p>
-      </div>
-
-      {/* Main Glass Console */}
-      <div className="glass p-5 sm:p-10 rounded-3xl relative overflow-hidden">
-        {/* Controls Toolbar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
-          {/* Query Selector Tabs */}
-          <div className="flex flex-wrap items-center gap-2">
-            {PRESET_QUERIES.map((q, idx) => (
-              <button
-                key={q.id}
-                onClick={() => setSelectedIdx(idx)}
-                className={`btn ${selectedIdx === idx ? 'btn-solid' : 'btn-glass glass'}`}
-                style={{ padding: '7px 16px', fontSize: '12px' }}
-              >
-                <span>{q.label}</span>
-              </button>
-            ))}
-          </div>
-
-          {/* Reranker Toggle */}
-          <div className="flex items-center justify-between sm:justify-start gap-3 glass px-3.5 py-1.5 rounded-full">
-            <span className="font-mono text-xs text-zinc-300">BAAI Cross-Encoder:</span>
-            <button
-              onClick={() => {
-                setRerankerEnabled(!rerankerEnabled);
-                runEvaluation();
-              }}
-              className={`px-3 py-1 rounded-full font-mono text-[11px] font-bold transition-all ${
-                rerankerEnabled
-                  ? 'bg-emerald-400 text-black shadow-[0_0_12px_#2bd67b]'
-                  : 'bg-zinc-800 text-zinc-400 border border-white/10'
-              }`}
-            >
-              {rerankerEnabled ? 'ENABLED (+28%)' : 'BYPASSED'}
-            </button>
-          </div>
-        </div>
-
-        {/* Query Display */}
-        <div className="py-5 border-b border-white/10">
-          <span className="font-mono text-[11px] text-zinc-500 block mb-1">INPUT QUERY:</span>
-          <p className="font-mono text-xs sm:text-sm text-white font-medium">
-            "{activeQuery.query}"
+          <h2 className="font-display font-black text-3xl sm:text-5xl text-[#241f1a] tracking-tight">
+            Quantitative Evals &amp;{' '}
+            <MarkerHighlight color="teal">
+              RAG Benchmarking.
+            </MarkerHighlight>
+          </h2>
+          <p className="font-sans text-base sm:text-lg text-[#544b3f]">
+            Test real-time retrieval parameters. Toggle the BAAI Cross-Encoder reranker to observe quantitative precision lifts, distractor chunk demotions, and streaming latencies.
           </p>
         </div>
 
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 py-5 border-b border-white/10">
-          <div className="glass p-3.5 rounded-2xl">
-            <span className="font-mono text-[10px] text-zinc-400 block mb-1">CONTEXT PRECISION</span>
-            <span
-              className={`font-mono text-xl sm:text-2xl font-black ${
-                rerankerEnabled ? 'text-emerald-400' : 'text-amber-400'
+        {/* Dashboard Paper Card */}
+        <div className="bg-[#fffaf0] border-[2.5px] border-[#241f1a] rounded-2xl p-6 sm:p-8 shadow-[8px_8px_0_#241f1a] max-w-5xl mx-auto space-y-6">
+          
+          {/* Controls Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b-2 border-[#241f1a]/20 pb-5">
+            {/* Mode selection pills */}
+            <div className="flex flex-wrap items-center gap-2.5">
+              {PRESET_QUERIES.map((q, idx) => (
+                <button
+                  key={q.id}
+                  onClick={() => setSelectedIdx(idx)}
+                  className={`px-3.5 py-1.5 rounded-lg border-2 font-mono text-xs sm:text-sm font-bold transition-all shadow-[2px_2px_0_#241f1a] ${
+                    selectedIdx === idx
+                      ? 'bg-[#241f1a] text-[#fbf3e2] border-[#241f1a]'
+                      : 'bg-white text-[#241f1a] border-[#241f1a] hover:bg-[#fff6e0]'
+                  }`}
+                >
+                  {q.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Interactive Toggle Pill */}
+            <button
+              onClick={() => setRerankerEnabled(!rerankerEnabled)}
+              className={`px-4 py-2 rounded-xl border-2 font-mono text-xs sm:text-sm font-bold transition-all flex items-center gap-2.5 shadow-[3px_3px_0_#241f1a] active:translate-x-0.5 active:translate-y-0.5 ${
+                rerankerEnabled
+                  ? 'bg-[#eafaf4] text-[#1fbfa4] border-[#1fbfa4]'
+                  : 'bg-[#fff2f2] text-[#ff5a5f] border-[#ff5a5f]'
               }`}
             >
-              {evalData.precision}
+              <span className={`w-3 h-3 rounded-full ${rerankerEnabled ? 'bg-[#36c25f]' : 'bg-[#ff5a5f]'}`} />
+              <span>
+                BAAI Cross-Encoder:{' '}
+                {rerankerEnabled ? 'ENABLED (+28% Lift)' : 'DISABLED (Naive Cosine)'}
+              </span>
+            </button>
+          </div>
+
+          {/* Active Query Display */}
+          <div className="bg-white border-2 border-[#241f1a] rounded-xl p-4 shadow-[3px_3px_0_#241f1a]">
+            <span className="font-mono text-xs font-bold text-[#544b3f] uppercase tracking-wider block mb-1">
+              Sample Evaluation Prompt
             </span>
-          </div>
-
-          <div className="glass p-3.5 rounded-2xl">
-            <span className="font-mono text-[10px] text-zinc-400 block mb-1">FAITHFULNESS SCORE</span>
-            <span className="font-mono text-xl sm:text-2xl font-black text-white">{evalData.faithfulness}</span>
-          </div>
-
-          <div className="glass p-3.5 rounded-2xl">
-            <span className="font-mono text-[10px] text-zinc-400 block mb-1">STREAMING TTFT</span>
-            <span className="font-mono text-xl sm:text-2xl font-black text-white">{evalData.latency}</span>
-          </div>
-
-          <div className="glass p-3.5 rounded-2xl">
-            <span className="font-mono text-[10px] text-zinc-400 block mb-1">DISTRACTOR DEMOTION</span>
-            <span
-              className={`font-mono text-xs sm:text-sm font-bold flex items-center gap-1 mt-1 ${
-                evalData.distractorDemoted ? 'text-emerald-400' : 'text-rose-400'
-              }`}
-            >
-              {evalData.distractorDemoted ? (
-                <>
-                  <CheckCircle2 className="w-3.5 h-3.5" /> Demoted
-                </>
-              ) : (
-                <>
-                  <AlertTriangle className="w-3.5 h-3.5" /> Alert
-                </>
-              )}
-            </span>
-          </div>
-        </div>
-
-        {/* Evaluated Output & Grounded Citation */}
-        <div className="pt-5 space-y-3">
-          <div>
-            <span className="font-mono text-[11px] text-zinc-500 block mb-1">VERIFIED GROUNDED CITATION:</span>
-            <div className="p-3 rounded-xl bg-black/60 border border-white/10 font-mono text-[11px] sm:text-xs text-zinc-300">
-              {evalData.citation}
+            <div className="font-display font-bold text-base sm:text-lg text-[#241f1a]">
+              &ldquo;{activeQuery.query}&rdquo;
             </div>
           </div>
 
-          <div>
-            <span className="font-mono text-[11px] text-zinc-500 block mb-1">SYNTHESIZED RESPONSE:</span>
-            <p className="text-zinc-200 text-xs sm:text-sm leading-relaxed font-sans bg-white/[0.02] p-3.5 rounded-2xl border border-white/5">
-              {evalData.answer}
-            </p>
+          {/* 4 Metric KPI Cards Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="bg-[#fffdf6] border-2 border-[#241f1a] rounded-xl p-4 text-center shadow-[3px_3px_0_#241f1a]">
+              <div className="font-mono text-xs text-[#544b3f] font-bold uppercase mb-1">
+                Context Precision
+              </div>
+              <div className="font-display font-black text-2xl sm:text-3xl text-[#1fbfa4]">
+                {evalData.precision}
+              </div>
+            </div>
+
+            <div className="bg-[#fffdf6] border-2 border-[#241f1a] rounded-xl p-4 text-center shadow-[3px_3px_0_#241f1a]">
+              <div className="font-mono text-xs text-[#544b3f] font-bold uppercase mb-1">
+                Faithfulness
+              </div>
+              <div className="font-display font-black text-2xl sm:text-3xl text-[#3a7bff]">
+                {evalData.faithfulness}
+              </div>
+            </div>
+
+            <div className="bg-[#fffdf6] border-2 border-[#241f1a] rounded-xl p-4 text-center shadow-[3px_3px_0_#241f1a]">
+              <div className="font-mono text-xs text-[#544b3f] font-bold uppercase mb-1">
+                Streaming TTFT
+              </div>
+              <div className="font-display font-black text-2xl sm:text-3xl text-[#241f1a]">
+                {evalData.latency}
+              </div>
+            </div>
+
+            <div className="bg-[#fffdf6] border-2 border-[#241f1a] rounded-xl p-4 text-center shadow-[3px_3px_0_#241f1a]">
+              <div className="font-mono text-xs text-[#544b3f] font-bold uppercase mb-1">
+                Distractors
+              </div>
+              <div className={`font-display font-black text-xl sm:text-2xl ${evalData.distractorDemoted ? 'text-[#36c25f]' : 'text-[#ff5a5f]'}`}>
+                {evalData.distractorDemoted ? '● Demoted' : '⚠️ Polluted'}
+              </div>
+            </div>
           </div>
+
+          {/* Punched-Hole Ruled Notebook Output Sheet */}
+          <RuledNotebookCard className="shadow-[4px_4px_0_#241f1a]">
+            <div className="space-y-3 font-mono text-xs sm:text-sm">
+              <div className="flex items-center justify-between border-b border-[#241f1a]/15 pb-2">
+                <span className="font-bold text-[#ff5a5f] uppercase tracking-wider">
+                  Verified Grounded Citation
+                </span>
+                <span className="approved-stamp">
+                  {evalData.distractorDemoted ? '✓ Grounded' : 'Drift Warning'}
+                </span>
+              </div>
+
+              <div className="font-mono text-xs sm:text-[13px] text-[#3a7bff] bg-white border border-[#241f1a]/20 p-2.5 rounded-lg">
+                {evalData.citation}
+              </div>
+
+              <div className="pt-2">
+                <span className="font-bold text-[#241f1a] uppercase text-xs block mb-1.5">
+                  Synthesized LLM Output
+                </span>
+                <p className="font-sans text-xs sm:text-sm text-[#241f1a] leading-relaxed bg-[#fffaf0] p-3 rounded-lg border border-[#241f1a]/20">
+                  {evalData.answer}
+                </p>
+              </div>
+            </div>
+          </RuledNotebookCard>
+
         </div>
+
       </div>
     </section>
   );

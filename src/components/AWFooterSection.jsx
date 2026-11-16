@@ -1,94 +1,64 @@
 import React from 'react';
-import { Mail, ArrowUpRight, FileText } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './Icons';
+import PaperPlaneDoodle from './stationery/PaperPlaneDoodle';
 
 export default function AWFooterSection({ onOpenResume }) {
-  const email = 'Sachin.Sharma.37919@gmail.com';
-
   return (
-    <footer className="footer border-t border-white/10" style={{ padding: '80px var(--gutter) 40px' }}>
-      <div className="wrap">
-        <div className="foot-top grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
-          {/* Brand Column (5 cols) */}
-          <div className="md:col-span-5 space-y-4">
+    <footer className="bg-[#241f1a] text-[#fbf3e2] pt-16 pb-12 border-t-[3px] border-[#241f1a]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 pb-12 border-b border-[#fbf3e2]/15">
+          
+          {/* Brand & Mission */}
+          <div className="md:col-span-6 space-y-4">
             <div className="flex items-center gap-3">
-              <span className="text-2xl font-black tracking-tight text-white">
+              <PaperPlaneDoodle color="#36c25f" size={32} />
+              <span className="font-display font-black text-2xl tracking-tight text-white">
                 SACHIN SHARMA
               </span>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" style={{ boxShadow: '0 0 10px #2bd67b' }} />
             </div>
 
-            <p className="foot-line text-zinc-300 font-sans text-sm max-w-sm leading-relaxed">
-              AI & Agentic Systems Engineer specializing in low-latency video RAG, stealth browser agents, and quantitative LLM evaluation suites.
+            <p className="font-hand text-2xl text-[#ffc23c] font-bold rotate-[-1deg]">
+              hope is not a production strategy ✎
             </p>
 
-            <div className="pt-2">
-              <span className="inline-flex items-center gap-2 font-mono text-xs text-emerald-400 glass px-3 py-1.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Open for AI Engineering Roles &bull; B.Tech CSE 2026
+            <p className="font-sans text-sm text-[#c9bfa9] max-w-md leading-relaxed">
+              Specialized in production-grade RAG retrieval, stealth browser agent architectures, and quantitative LLM evaluation suites.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-2 pt-2">
+              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#362f27] text-[#36c25f] border border-[#36c25f]/40">
+                ● OPEN FOR AI ROLES
               </span>
-            </div>
-
-            {/* Social Icons */}
-            <div className="socials flex items-center gap-3 pt-4">
-              <a
-                href="https://github.com/Sachin-dev001"
-                target="_blank"
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full glass flex items-center justify-center text-zinc-300 hover:text-white hover:scale-105 transition"
-                title="GitHub"
-              >
-                <GithubIcon className="w-4 h-4" />
-              </a>
-
-              <a
-                href="https://linkedin.com/in/sachin-sharma-659ab53b6"
-                target="_blank"
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full glass flex items-center justify-center text-zinc-300 hover:text-white hover:scale-105 transition"
-                title="LinkedIn"
-              >
-                <LinkedinIcon className="w-4 h-4" />
-              </a>
-
-              <a
-                href={`mailto:${email}`}
-                className="w-10 h-10 rounded-full glass flex items-center justify-center text-zinc-300 hover:text-white hover:scale-105 transition"
-                title="Email"
-              >
-                <Mail className="w-4 h-4" />
-              </a>
-
-              <button
-                type="button"
-                onClick={onOpenResume}
-                className="w-10 h-10 rounded-full glass flex items-center justify-center text-zinc-300 hover:text-white hover:scale-105 transition"
-                title="Resume"
-              >
-                <FileText className="w-4 h-4" />
-              </button>
+              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#362f27] text-[#ffc23c] border border-[#ffc23c]/40">
+                B.TECH CSE 2026
+              </span>
             </div>
           </div>
 
-          {/* Nav Links Column 1: Systems (3 cols) */}
-          <div className="md:col-span-3 space-y-3">
-            <span className="font-mono text-xs text-zinc-500 uppercase tracking-wider block mb-4">
-              FLAGSHIP SYSTEMS
+          {/* Quick Links Column 1: Flagship Systems */}
+          <div className="md:col-span-3 space-y-3 font-sans">
+            <span className="font-hand font-bold text-xl text-[#ffc23c] block">
+              flagship systems ✎
             </span>
-            <ul className="space-y-2 text-sm text-zinc-300 font-sans">
-              <li>
-                <a href="#built" className="hover:text-white transition flex items-center gap-1">
-                  Architecture Console
-                </a>
-              </li>
+            <ul className="space-y-2 text-sm text-[#c9bfa9]">
               <li>
                 <a
                   href="https://video-sage-ai.streamlit.app"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-white transition flex items-center gap-1"
+                  className="hover:text-white transition-colors"
                 >
-                  VideoSage AI (Live) <ArrowUpRight className="w-3 h-3 text-zinc-500" />
+                  VideoSage AI (Live App) ↗
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/Sachin-dev001/video-sage-ai"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  VideoSage AI (GitHub) ↗
                 </a>
               </li>
               <li>
@@ -96,61 +66,100 @@ export default function AWFooterSection({ onOpenResume }) {
                   href="https://github.com/Sachin-dev001/ai-job-agent"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-white transition flex items-center gap-1"
+                  className="hover:text-white transition-colors"
                 >
-                  AutoApply Agent <ArrowUpRight className="w-3 h-3 text-zinc-500" />
+                  AutoApply Agent (GitHub) ↗
                 </a>
               </li>
               <li>
-                <a href="#evals-lab" className="hover:text-white transition">
+                <a
+                  href="#architecture"
+                  className="hover:text-white transition-colors"
+                >
+                  Architecture Console
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#evals"
+                  className="hover:text-white transition-colors"
+                >
                   Quantitative Evals Lab
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Nav Links Column 2: Navigation (4 cols) */}
-          <div className="md:col-span-4 space-y-3">
-            <span className="font-mono text-xs text-zinc-500 uppercase tracking-wider block mb-4">
-              NAVIGATION
+          {/* Quick Links Column 2: Navigation & Contact */}
+          <div className="md:col-span-3 space-y-3 font-sans">
+            <span className="font-hand font-bold text-xl text-[#ffc23c] block">
+              navigation ✎
             </span>
-            <ul className="space-y-2 text-sm text-zinc-300 font-sans">
+            <ul className="space-y-2 text-sm text-[#c9bfa9]">
               <li>
-                <a href="#hero" className="hover:text-white transition">Top of Page</a>
+                <a href="#capabilities" className="hover:text-white transition-colors">
+                  Core Capabilities
+                </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition">Core Capabilities</a>
+                <a href="#process" className="hover:text-white transition-colors">
+                  5-Step Process
+                </a>
               </li>
               <li>
-                <a href="#process" className="hover:text-white transition">Engineering Methodology</a>
+                <a href="#why" className="hover:text-white transition-colors">
+                  Why Sachin
+                </a>
               </li>
               <li>
-                <a href="#credentials" className="hover:text-white transition">Credentials (B.Tech & NSDC)</a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-white transition">Technical FAQ</a>
+                <a href="#credentials" className="hover:text-white transition-colors">
+                  Credentials &amp; Education
+                </a>
               </li>
               <li>
                 <button
                   onClick={onOpenResume}
-                  className="text-emerald-400 hover:underline flex items-center gap-1 font-mono text-xs pt-2"
+                  className="hover:text-white transition-colors text-left"
                 >
-                  Download ATS Resume (PDF) &rarr;
+                  View ATS Resume
                 </button>
               </li>
             </ul>
           </div>
+
         </div>
 
-        {/* Foot Bottom */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-zinc-500">
+        {/* Bottom Copyright & Signoff */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-[#8c8270]">
           <div>
-            &copy; 2026 Sachin Sharma. All rights reserved.
+            © 2026 Sachin Sharma. Built with paper, ink &amp; production-grade AI ☕
           </div>
-          <div>
-            Poornima University &bull; B.Tech Computer Science &bull; NSDC AI & DS
+          <div className="flex items-center gap-6 text-[#c9bfa9]">
+            <a
+              href="https://github.com/Sachin-dev001"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/sachin-sharma-659ab53b6"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="mailto:Sachin.Sharma.37919@gmail.com"
+              className="hover:text-white transition-colors"
+            >
+              Email
+            </a>
           </div>
         </div>
+
       </div>
     </footer>
   );

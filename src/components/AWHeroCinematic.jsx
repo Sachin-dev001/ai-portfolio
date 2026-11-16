@@ -1,76 +1,184 @@
 import React from 'react';
-import { ArrowRight, FileText } from 'lucide-react';
+import MaskingTape from './stationery/MaskingTape';
+import MarkerHighlight from './stationery/MarkerHighlight';
+import StickerBadge from './stationery/StickerBadge';
+import PaperPlaneDoodle from './stationery/PaperPlaneDoodle';
 
 export default function AWHeroCinematic({ onOpenResume }) {
   return (
-    <section className="hero" id="hero">
-      {/* Background Cinematic Video Loop & Shade (Identical to AW Media) */}
-      <div className="hero-media" data-hero-media="">
-        <video
-          className="hero-video"
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/hero-poster.webp"
-        >
-          <source src="/hero-cinematic.mp4" type="video/mp4" />
-        </video>
-        <div className="hero-shade" />
-      </div>
+    <section id="top" className="relative pt-8 sm:pt-14 pb-16 sm:pb-24 overflow-visible">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          
+          {/* Left Column: Hero Typography & Actions */}
+          <div className="lg:col-span-7 space-y-6 sm:space-y-7">
+            
+            {/* Handwritten Eyebrow */}
+            <div className="inline-block">
+              <span className="eyebrow-marker text-2xl sm:text-3xl text-[#3a7bff]">
+                specializing in production rag, autonomous agents & llmops ✎
+              </span>
+            </div>
 
-      {/* Hero Inner Content */}
-      <div className="hero-inner" data-hero-inner="">
-        <span className="chip glass" data-liquid="chip">
-          <i
-            style={{
-              width: '6px',
-              height: '6px',
-              borderRadius: '50%',
-              backgroundColor: '#2bd67b',
-              boxShadow: '0 0 10px #2bd67b',
-              marginRight: '8px',
-              display: 'inline-block',
-            }}
-          />
-          Specializing in Production RAG, Autonomous Agents & LLMOps
-        </span>
+            {/* Display Bold Serif Headline */}
+            <h1 className="font-display font-black text-4xl sm:text-6xl xl:text-[68px] text-[#241f1a] leading-[1.08] tracking-tight">
+              SACHIN SHARMA —{' '}
+              <br className="hidden sm:inline" />
+              AI &amp;{' '}
+              <MarkerHighlight color="yellow">
+                Agentic Systems
+              </MarkerHighlight>{' '}
+              Engineer.
+            </h1>
 
-        {/* Hero Title: Prominent Personal Branding */}
-        <h1 className="hero-title">
-          <span className="line">
-            <span className="line-in">SACHIN SHARMA</span>
-          </span>
-          <span className="line">
-            <span className="line-in chrome">AI & Agentic Systems Engineer.</span>
-          </span>
-        </h1>
+            {/* Lead Narrative */}
+            <p className="font-sans text-lg sm:text-xl text-[#544b3f] leading-relaxed max-w-2xl font-medium">
+              Architecting resilient production-grade Generative AI infrastructure: low-latency hybrid RAG retrieval pipelines, autonomous stealth web agents with human-in-the-loop safeguards, and quantitative LLM evaluation suites.
+            </p>
 
-        <p className="hero-sub">
-          Building production-grade Generative AI systems: low-latency hybrid RAG pipelines, autonomous stealth web agents with human-in-the-loop safeguards, and quantitative eval suites.
-        </p>
+            {/* Action Buttons & Handwritten Note */}
+            <div className="pt-2 flex flex-wrap items-center gap-4 sm:gap-6">
+              <a
+                href="#architecture"
+                className="btn-paper btn-ink text-base sm:text-lg py-3 px-6 shadow-[4px_4px_0_#241f1a]"
+              >
+                Explore Console <span>→</span>
+              </a>
 
-        <div className="hero-ctas">
-          <button type="button" onClick={onOpenResume} className="btn btn-solid">
-            <span>Download ATS Resume</span>
-          </button>
-          <a className="btn btn-glass glass" data-liquid="btn" href="#built">
-            <span>View Flagship Work</span>
-          </a>
+              <a
+                href="#work"
+                className="btn-paper bg-[#ffffff] hover:bg-[#fff6e0] text-[#241f1a] text-base sm:text-lg py-3 px-6 shadow-[4px_4px_0_#241f1a]"
+              >
+                Flagship Work
+              </a>
+
+              <div className="flex items-center gap-2 font-hand text-xl sm:text-2xl text-[#3a7bff] font-bold">
+                <span>production-first, zero toy scripts</span>
+                <span className="text-xl">✍</span>
+              </div>
+            </div>
+
+            {/* Micro Badge Row */}
+            <div className="pt-4 flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono font-bold text-[#544b3f]">
+              <span className="px-2.5 py-1 rounded-md bg-[#fffaf0] border border-[#241f1a]/30 shadow-sm">
+                JAIPUR, RAJASTHAN
+              </span>
+              <span className="px-2.5 py-1 rounded-md bg-[#fffaf0] border border-[#241f1a]/30 shadow-sm">
+                B.TECH CSE (2022–2026)
+              </span>
+              <span className="px-2.5 py-1 rounded-md bg-[#eafaf4] text-[#1fbfa4] border border-[#1fbfa4]/50 shadow-sm">
+                ● GOVT NSDC AI/DS CERTIFIED
+              </span>
+            </div>
+
+          </div>
+
+          {/* Right Column: Taped Stationery Index Cards Stack & Doodles */}
+          <div className="lg:col-span-5 relative min-h-[380px] sm:min-h-[440px] flex items-center justify-center">
+            
+            {/* Flying Paper Plane Doodle */}
+            <div className="absolute -top-6 -right-2 sm:right-6 animate-bounce z-20">
+              <PaperPlaneDoodle color="#ff5a5f" size={54} className="rotate-[-10deg]" />
+            </div>
+
+            {/* Circular Purple Sticker Badge */}
+            <StickerBadge
+              text="zero hallucinations!"
+              color="#8b5cf6"
+              rotate="-14deg"
+              className="-bottom-4 -left-2 sm:left-4 z-30 shadow-[4px_4px_0_#241f1a]"
+            />
+
+            {/* Card 1: RAG Retrieval Log (White, Blue Tape, -2deg) */}
+            <div
+              className="absolute w-[92%] sm:w-[340px] bg-white border-[2.5px] border-[#241f1a] rounded-xl p-5 shadow-[6px_6px_0_#241f1a] transform -rotate-2 -translate-y-16 -translate-x-3 transition-transform hover:rotate-0 hover:z-20 hover:scale-105 duration-200"
+              style={{ zIndex: 12 }}
+            >
+              <MaskingTape color="blue" rotate="-4deg" />
+              <div className="flex items-center justify-between border-b border-[#241f1a]/15 pb-2 mb-2 font-mono text-xs">
+                <span className="font-bold flex items-center gap-1.5 text-[#241f1a]">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#3a7bff]" />
+                  rag_retrieval.log
+                </span>
+                <span className="text-[#36c25f] font-bold">200 OK</span>
+              </div>
+              <div className="space-y-1.5 font-mono text-[13px] text-[#241f1a]">
+                <div className="flex justify-between">
+                  <span className="text-[#544b3f]">Precision Lift:</span>
+                  <span className="font-bold text-[#ff5a5f]">+28.3% (BAAI)</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#544b3f]">Streaming TTFT:</span>
+                  <span className="font-bold text-[#1fbfa4]">&lt;800ms SSE</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#544b3f]">Vector Storage:</span>
+                  <span className="font-bold">5,000+ Chunks</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Stealth Agent Run (Pale Yellow, Amber Tape, +2.5deg) */}
+            <div
+              className="absolute w-[92%] sm:w-[340px] bg-[#fff6e0] border-[2.5px] border-[#241f1a] rounded-xl p-5 shadow-[6px_6px_0_#241f1a] transform rotate-[2.5deg] translate-y-3 translate-x-3 transition-transform hover:rotate-0 hover:z-20 hover:scale-105 duration-200"
+              style={{ zIndex: 14 }}
+            >
+              <MaskingTape color="yellow" rotate="3deg" />
+              <div className="flex items-center justify-between border-b border-[#241f1a]/15 pb-2 mb-2 font-mono text-xs">
+                <span className="font-bold flex items-center gap-1.5 text-[#241f1a]">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ffc23c]" />
+                  stealth_agent.run
+                </span>
+                <span className="text-[#1fbfa4] font-bold">ACTIVE</span>
+              </div>
+              <div className="space-y-1.5 font-mono text-[13px] text-[#241f1a]">
+                <div className="flex justify-between">
+                  <span className="text-[#544b3f]">Latency Reduction:</span>
+                  <span className="font-bold text-[#ff5a5f]">85% Faster</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#544b3f]">Automated Submits:</span>
+                  <span className="font-bold">50+ Portals/Day</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#544b3f]">Bot Detection:</span>
+                  <span className="font-bold text-[#36c25f]">0 Flags (Stealth)</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3: Evals Guardrails Pass (Pale Mint, Mint Tape, -1deg) */}
+            <div
+              className="absolute w-[92%] sm:w-[340px] bg-[#eafaf4] border-[2.5px] border-[#241f1a] rounded-xl p-5 shadow-[6px_6px_0_#241f1a] transform -rotate-1 translate-y-24 -translate-x-2 transition-transform hover:rotate-0 hover:z-20 hover:scale-105 duration-200"
+              style={{ zIndex: 16 }}
+            >
+              <MaskingTape color="mint" rotate="-2deg" />
+              <div className="flex items-center justify-between border-b border-[#241f1a]/15 pb-2 mb-2 font-mono text-xs">
+                <span className="font-bold flex items-center gap-1.5 text-[#241f1a]">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#1fbfa4]" />
+                  eval_guardrails.pass
+                </span>
+                <span className="approved-stamp">✓ PASS</span>
+              </div>
+              <div className="space-y-1.5 font-mono text-[13px] text-[#241f1a]">
+                <div className="flex justify-between">
+                  <span className="text-[#544b3f]">Context Precision:</span>
+                  <span className="font-bold text-[#1fbfa4]">92.4% Verified</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#544b3f]">Faithfulness:</span>
+                  <span className="font-bold">0.96 Score</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#544b3f]">Hallucination Drift:</span>
+                  <span className="font-bold text-[#36c25f]">&lt;3% Bound</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
-
-        <ul className="hero-proof">
-          <li>Sub-800ms TTFT Streaming</li>
-          <li>+28% Precision Lift via Reranker</li>
-          <li>50+ Daily Stealth Submissions</li>
-          <li>Zero Bot Detection Flags</li>
-        </ul>
-      </div>
-
-      {/* Scroll Cue (Identical to AW Media) */}
-      <div className="scroll-cue" aria-hidden="true">
-        <span>Scroll</span>
-        <i />
       </div>
     </section>
   );

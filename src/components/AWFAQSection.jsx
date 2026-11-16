@@ -1,4 +1,5 @@
 import React from 'react';
+import MarkerHighlight from './stationery/MarkerHighlight';
 
 const FAQS = [
   {
@@ -25,50 +26,42 @@ const FAQS = [
 
 export default function AWFAQSection() {
   return (
-    <section className="faq wrap" id="faq" style={{ padding: '100px var(--gutter)' }}>
-      <div className="mb-12">
-        <span className="chip glass inline-block mb-6" data-liquid="chip">
-          <i
-            style={{
-              width: '6px',
-              height: '6px',
-              borderRadius: '50%',
-              backgroundColor: '#2bd67b',
-              boxShadow: '0 0 10px #2bd67b',
-              marginRight: '8px',
-              display: 'inline-block',
-            }}
-          />
-          Technical FAQ
-        </span>
-
-        <h2 className="display reveal-lines">
-          <span className="line">
-            <span className="line-in">Everything you need to</span>
+    <section id="faq" className="relative py-20 sm:py-28 bg-[#fbf3e2]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
+          <span className="eyebrow-marker text-2xl sm:text-3xl text-[#ff5a5f]">
+            technical faq ✎
           </span>
-          <span className="line">
-            <span className="line-in chrome">know.</span>
-          </span>
-        </h2>
-      </div>
+          <h2 className="font-display font-black text-3xl sm:text-5xl text-[#241f1a] tracking-tight">
+            Everything you need to{' '}
+            <MarkerHighlight color="yellow">
+              know.
+            </MarkerHighlight>
+          </h2>
+        </div>
 
-      <div className="faq-list space-y-4">
-        {FAQS.map((item, idx) => (
-          <details
-            key={idx}
-            className="qa glass p-6 sm:p-8 rounded-3xl cursor-pointer transition-all duration-300 group hover:border-white/30"
-          >
-            <summary className="font-bold text-lg sm:text-xl text-white list-none flex items-center justify-between gap-4 outline-none">
-              <span>{item.q}</span>
-              <span className="w-8 h-8 rounded-full glass flex items-center justify-center font-mono text-sm text-zinc-400 group-open:rotate-45 group-open:text-white transition-transform">
-                +
-              </span>
-            </summary>
-            <div className="qa-body mt-4 pt-4 border-t border-white/10 text-zinc-300 font-sans text-sm sm:text-base leading-relaxed">
-              <p>{item.a}</p>
-            </div>
-          </details>
-        ))}
+        {/* Accordion List */}
+        <div className="space-y-4">
+          {FAQS.map((item, idx) => (
+            <details
+              key={idx}
+              className="group bg-[#fffaf0] border-[2.5px] border-[#241f1a] rounded-2xl p-5 sm:p-6 shadow-[4px_4px_0_#241f1a] transition-all duration-200 cursor-pointer"
+            >
+              <summary className="font-display font-bold text-lg sm:text-xl text-[#241f1a] list-none flex items-center justify-between gap-4 outline-none select-none">
+                <span>{item.q}</span>
+                <span className="w-8 h-8 rounded-full border-2 border-[#241f1a] bg-white flex items-center justify-center font-mono text-sm text-[#241f1a] shadow-[2px_2px_0_#241f1a] group-open:rotate-45 transition-transform flex-shrink-0">
+                  +
+                </span>
+              </summary>
+              <div className="mt-4 pt-4 border-t-2 border-[#241f1a]/15 text-[#544b3f] font-sans text-sm sm:text-base leading-relaxed">
+                <p>{item.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+
       </div>
     </section>
   );
